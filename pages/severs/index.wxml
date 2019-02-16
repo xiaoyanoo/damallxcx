@@ -1,0 +1,88 @@
+<!-- 搜索
+<form bindsubmit="onSearchSubmit" report-submit="true">
+  <view class="search-bar flex">
+  <view class="address lineText mr10" bindtap="onOpenMapTap" wx:if="{{address}}">
+                    <text class="linght iconfont icon-locationfill"></text>{{address}}
+                </view>
+    <view class="input-inner sub">
+      <view class="flex search-box">
+        <text class="mr5 iconfont icon-search"></text>
+        <input type="text" class="sub" placeholder="请输入关键词" focus="{{searchShow}}" bindblur="onHideSearchBlur" confirm-type="搜索" name="keyword" value="{{param.keyword}}" />
+        <text class="ml5 iconfont icon-close f12" catchtap="onClearKeywordTap"></text>
+      </view>
+      <label class="search-show tc red" wx:if="{{!searchShow}}" catchtap="onShowSearchTap">
+        <text class="mr5 iconfont icon-search"></text>
+        <text>搜索</text>
+      </label>
+    </view>
+    <button form-type="submit" wx:if="{{searchShow}}" hover-class="active" class="green searchbtn f14">搜索</button>
+  </view>
+</form> -->
+
+<!--Banner-->
+<!-- <template name="category">
+  <swiper class="fenlei gridXb mt10" style="height:{{categorys[0].length<5?'212':'364'}}rpx;" indicator-dots="true" circular="true">
+    <swiper-item wx:for="{{categorys}}" wx:key="*this2">
+      <view class="classify-box clearfix">
+         <view class="classify-list tc" wx:for="{{item}}" wx:key="*this1" catchtap="onNavigateTap" data-url="lists?cid={{item.id}}&title={{item.name}}">
+          <image class="list-img" src="{{item.ico}}" mode="aspectFill"></image>
+          <view class="lineText">{{item.name}}</view>
+        </view> 
+      </view>
+    </swiper-item>
+  </swiper>
+</template> -->
+
+<!--广告位-->
+<swiper style='height:145px;padding:0 10px;' indicator-dots="true" autoplay="true" interval="5000" duration="1000" style="height:{{bannerHeight}}px;padding:0 20rpx">
+  <block wx:for="{{banner}}" wx:key="">
+    <swiper-item style="width:100%;height:100%">
+      <image style="width:100%;height:100%" src="{{item.ad_code}}" data-goods-id="{{item.ad_link}}" mode="aspectFill" class="swiper-image" bindtap="clickBanner" />
+    </swiper-item>
+  </block>
+</swiper>
+<!-- <template name="ad">
+  <view class="adsense tc mt10" wx:if="{{ad_img}}">
+    <image class="ad-img" src="{{ad_img}}" mode="aspectFill" catchtap="onAdTap"></image>
+    <text class="ad-text f12 write">广告</text>
+  </view>
+</template> -->
+
+<block wx:if="{{config.ad_sort==0}}">
+  <template is="ad" data="{{ad_img:ad_img}}" />
+  <template is="category" data="{{categorys:categorys,imgHeight:imgHeight}}" />
+</block>
+<block wx:else>
+  <template is="category" data="{{categorys:categorys,imgHeight:imgHeight}}" />
+  <template is="ad" data="{{ad_img:ad_img}}" />
+</block>
+
+<!--排序分类-->
+<!-- <view class="flex tc paixu f16 red mt10 mb10">
+  <view class="sub gridYr {{param.type==0?'active':''}}" catchtap="onSwtchTabTap" data-index="0">最新发布</view>
+  <view class="sub {{param.type==1?'active':''}}" catchtap="onSwtchTabTap" data-index="1">距离最近</view>
+</view> -->
+
+<view>
+  <import src="list_tpl.wxml" />
+  <template is="list" data="{{data:data,styles:styles,show_comment:show_comment,comment_placeholder:comment_placeholder,config:config}}" />
+</view>
+
+<!--正在加载中-->
+<view class="loding red mt10 mb10 tc f14" hidden="{{!hasMore}}">
+  <text class="mr10 loading-icon"></text>
+  <text>正在加载中</text>
+</view>
+<!--没有更多了-->
+<view class="nothing tc linght flex mt10 mb10" hidden="{{hasMore}}">
+  <text class="sub line mr10"></text>
+  <text>没有更多了</text>
+  <text class="sub line ml10"></text>
+</view>
+
+<!--我要发布-->
+<view class="add-msg write tc">
+  <view class="add transition-duration-150" catchtap="onNavigateTap" data-url="write" data-type="switch">
+    <text class="f18 iconfont icon-add"></text>
+  </view>
+</view>

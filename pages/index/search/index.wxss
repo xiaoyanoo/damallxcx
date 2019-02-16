@@ -1,0 +1,95 @@
+/* pages/index/search/index.wxss */
+@import "../index.wxss";  
+page{
+  background: #fff;
+}
+.search_tab{
+  height: 150rpx;
+}
+.search_tab_text{
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+  font-size: 35rpx;
+  line-height: 150rpx;
+  border-bottom: 1px solid #ccc;
+  color:#999;
+
+}
+.search_tab_cur{
+  color:#566e3a !important;
+  border-bottom: 1px solid #566e3a !important;
+}
+.lishi{
+  padding: 25rpx;
+}
+.lishi .lishi_top{
+  height: 75rpx;
+  margin-bottom: 20rpx;
+}
+.lishi .lishi_top_img{
+  width: 52rpx;
+  height: 52rpx;
+  float: left;
+  margin-right: 10rpx;
+}
+
+.lishi .lishi_top_l{
+  color: #999;
+  float: left;
+  font-size:35rpx;
+  line-height:53rpx;
+
+
+}
+.lishi .lishi_top_r{
+  color: #999;
+  float: right;
+  font-size:35rpx;
+  line-height:53rpx;
+
+}
+.lishi .lishi_tag text{
+  float: left;
+  color: #fff;
+  background: #ccc;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+  font-size: 30rpx;
+  padding: 10rpx 20rpx;
+  margin-bottom: 20rpx;
+}
+.index_btn{
+  font-size: 25rpx;
+  padding: 5rpx 25rpx;
+  background: #566e3a;
+  border-radius: 10rpx;
+  color: #fff;
+  float: right;
+  line-height: 50rpx;
+}
+.search_btn{
+  width:5%;
+  height:50rpx;
+  float:left;
+}
+.search_btn image{
+  float:left;
+  width:34rpx;
+  height:34rpx;
+  vertical-align:middle;
+  display:inline-block;
+  margin-top: 14rpx;
+
+}
+.search_ipt{
+  width:75%;
+  margin:0 10rpx;
+  float:left;
+  height:100%;
+  line-height:50rpx;
+  padding:5rpx 20rpx;
+  font-size:28rpx;
+
+}
+

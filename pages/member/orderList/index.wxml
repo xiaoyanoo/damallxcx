@@ -1,0 +1,73 @@
+<!--pages/member/orderList/index.wxml-->
+<view class="container">
+  <view class="order" wx:for="{{datas}}" wx:key="keys">
+    <view class='car_box_li_store'>
+      <view class="car_box_li_store_con_icon">
+        <image wx:if="{{item.store_logo}}" src="{{jiekou + item.store_logo}}"></image>
+      </view>
+      <view class="car_box_li_store_con_name">{{item.store_name}}</view>
+      <view class="status_msg">
+        <block wx:if="{{item.order_status == 3}}">
+          订单已取消
+        </block>
+        <block wx:else>
+          <block wx:if="{{item.pay_status == 0}}">
+            待支付
+          </block>
+          <block wx:else>
+            <block wx:if="{{item.shipping_status == 0}}">
+              未发货
+            </block>
+            <block wx:if="{{item.shipping_status == 1}}">
+              已发货
+            </block>
+            <block wx:if="{{item.shipping_status == 2}}">
+              当前发货第{{item.phase}}期
+            </block>
+          </block>
+        </block>
+      </view>
+    </view>
+    <view class="car_box_li_goods" data-index="1" data-spec_key="{{item.goods.spec_key}}" data-goods_id="{{item.goods.goods_id}}" data-id="{{item.order_id}}" bindtap="{{titleNum == 3?'':'tkDetails'}}">
+      <view class="car_box_li_goods_li">
+        <view class="car_box_li_goods_li_con">
+          <view class="car_box_li_goods_li_con_img">
+            <image wx:if="{{item.goods.goods_img}}" src="{{jiekou + item.goods.goods_img}}"></image>
+          </view>
+          <view class="car_box_li_goods_li_con_main">
+            <view class="car_box_li_goods_li_con_main_tit">{{item.goods.goods_name}}</view>
+            <view class="car_box_li_goods_li_con_main_style">{{item.goods.spec}}</view>
+            <view class="car_box_li_goods_li_con_main_pri">¥{{item.goods.price}}</view>
+          </view>
+          <view class="car_box_li_goods_li_con_num">x{{item.goods.goods_num}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="order_msg">
+      共{{item.goods.goods_num}}件商品 合计： <text>¥{{item.order_amount}}</text>（含运费：<text>{{item.shipping_price}}</text>）
+    </view>
+    <view class="order_btns">
+      <block wx:if="{{titleNum == 0}}">
+        <view class="order_btns_li" data-index="1" data-spec_key="{{item.goods.spec_key}}" data-goods_id="{{item.goods.goods_id}}" data-id="{{item.order_id}}" bindtap='tkDetails'>去支付</view>
+        <view class="order_btns_li" data-id="{{item.order_id}}" bindtap='cancelOrder'>取消订单</view>
+      </block>
+      <block wx:if="{{titleNum == 1}}">
+        <block wx:if="{{item.shipping_status == 1||item.shipping_status == 2}}">
+          <view class="order_btns_li" data-id="{{item.order_id}}" bindtap='confirmOrder'>确认收货</view>
+        </block>
+
+        <view class="order_btns_li" data-id="{{item.order_id}}" bindtap='linkLogistics'>查看物流</view>
+      </block>
+      <block wx:if="{{titleNum == 2}}">
+        <view class="order_btns_li" data-spec_key="{{item.goods.spec_key}}" data-goods_id="{{item.goods.goods_id}}" data-id="{{item.order_id}}" bindtap="{{item.goods.is_comment == 0 ? 'linkGoodsComment': ''}}">{{item.goods.is_comment == 0 ? "前往评价": "已评价"}}</view>
+        <view class="order_btns_li" data-id="{{item.order_id}}" bindtap='linkLogistics'>查看物流</view>
+        <view class="order_btns_li" data-spec_key="{{item.goods.spec_key}}" data-goods_id="{{item.goods.goods_id}}" data-id="{{item.order_id}}" bindtap='delOrder'>删除订单</view>
+      </block>
+      <block wx:if="{{titleNum == 3}}">
+        <view class="order_btns_li" data-index="3" data-spec_key="{{item.goods.spec_key}}" data-goods_id="{{item.goods.goods_id}}" data-id="{{item.order_id}}" bindtap='tkDetails'>查看详情</view>
+        <view class="order_btns_li" data-spec_key="{{item.goods.spec_key}}" data-goods_id="{{item.goods.goods_id}}" data-id="{{item.order_id}}" bindtap='delOrder'>删除订单</view>
+      </block>
+    </view>
+
+  </view>
+</view>

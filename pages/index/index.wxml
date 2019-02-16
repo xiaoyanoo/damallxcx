@@ -1,0 +1,88 @@
+<view class="container">
+    <view class="index_search" bindtap='linkSearch'>
+      <input class="index_search_ipt" disabled='true' type="text" placeholder='关键词搜索' placeholder-style='color: #787878;font-size: 24rpx;text-align: center;'></input>
+      <view class="index_search_btn">
+        <image src="../../images/sousuo.png"></image>
+      </view>
+    </view>
+    <view class="index_slider">
+      <swiper autoplay='true' circular='true' indicator-dots='true' indicator-color='rgba(84, 101, 113, 0.2)' indicator-active-color='#546571'>
+        <swiper-item wx:for="{{advertise}}" data-type="{{item.type}}"  bindtap="ad_href" data-url="{{item.url}}"  wx:key="keys" data-id="{{item.adId}}">
+          <image wx:if="{{item.simg}}" src="{{jiekou + item.simg}}"></image>
+        </swiper-item>
+      </swiper>
+    </view>
+    <view class="shouye_xiaoxi">
+      <image class="xiaoxi_img" src="../../images/xiaoxi.png"></image>
+      <view style="display:inline-block;height:50rpx;width:90%;line-height:50rpx;background:#fff">
+        <swiper vertical="true" class="xiaoxi_swiper" style="height:50rpx;width:100%" autoplay='true' circular='true' >
+          <swiper-item >
+              <text>桂圆干茂名高州最强，不服来战！</text>
+          </swiper-item>
+          <swiper-item>
+              <text>桂圆干茂名高州最强，不服来战！</text>
+          </swiper-item>
+          <swiper-item>
+              <text>桂圆干茂名高州最强，不服来战！</text>
+          </swiper-item>
+        </swiper>
+      </view>
+      
+    </view>
+    <view class="good_list clear">
+        <view class='good_list_li' data-id="1" bindtap='linkList'>
+          <view class="good_list_li_img">
+            <image src="../../images/shangdian.png"></image>
+          </view>
+          <view class="good_list_li_text" style='color:#4d7448;'>毅婷小店</view>
+        </view>
+        <view class='good_list_li' data-id="2" bindtap='linkList'>
+          <view class="good_list_li_img">
+            <image src="../../images/huodong.png"></image>
+          </view>
+          <view class="good_list_li_text" style='color:#304950;'>特惠专区</view>
+        </view>
+        <view class='good_list_li' data-id="3" bindtap='linkList'>
+          <view class="good_list_li_img">
+            <image src="../../images/shangdian1.png"></image>
+          </view>
+          <view class="good_list_li_text" style='color:#440e4c;'>商家列表</view>
+        </view>
+        <view class='good_list_li' data-id="4" bindtap='linkList'>
+          <view class="good_list_li_img">
+            <image src="../../images/huati.png"></image>
+          </view>
+          <view class="good_list_li_text" style='color:#652a24;'>超级话题</view>
+        </view>
+    </view>
+  
+    <view class="shop_nav">
+      <view class="shop_nav_icon">
+        <image src="../../images/314507081281802443.png"></image>
+      </view>
+    </view>
+    <view class="shop_box clear">
+      <view class="shop_top">
+        <image class="shop_top_img" src="../../images/bolangxian.png"></image>
+        <text>良品优选</text>
+        <image class="shop_top_img"  src="../../images/bolangxian.png"></image>
+      </view>
+      <block wx:for="{{guessLike}}" wx:key="goodListKey">
+        <view class="shop_box_li" data-type="{{item.type}}" catchtap='linkDetails' data-id="{{item.goods_id}}">
+          <view class="shop_box_li_img">
+            <image wx:if="{{item.goods_img}}" src="{{jiekou + item.goods_img}}"></image>
+          </view>
+          <view class="shop_box_li_r">
+            <view class="shop_box_li_tit">{{item.goods_name}}</view>
+            <view class="shop_box_li_text">{{item.goods_remark}}</view>
+            <view class="shop_box_li_num">{{item.goods_sale}}人已购买</view>
+            <view class="shop_box_li_pri">¥ {{item.price}}<text class="old_price">￥{{item.price}}</text></view>
+          </view>
+          
+          <!-- <view class="shop_box_li_btn" data-id="{{item.goods_id}}">
+            <image src="../../images/shangpinliebiao_tianjia.png"></image>
+          </view> -->
+        </view>
+      </block>
+    </view>
+</view>

@@ -1,0 +1,2 @@
+/* pages/severs/jubao.wxss */
+textarea.jubao-content{width: 100%;padding: 30rpx;background: #fff;}

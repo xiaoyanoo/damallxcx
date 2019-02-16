@@ -1,0 +1,98 @@
+/* pages/index/shopDetails/index.wxss */
+@import "../shopDetails/index.wxss";  
+.taocan {
+  width: 100%;
+  border-bottom: 20rpx solid #f0f0f0;
+}
+.taocan_li {
+  width: 100%;
+  height: 80rpx;
+  font-size: 28rpx;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.taocan_li view {
+  float: left;
+  width: 33.33%;
+  box-sizing: border-box;
+  line-height: 80rpx;
+}
+.remark_left{
+  padding: 25rpx;
+  float: left;
+}
+.remark_right{
+  padding: 25rpx;
+  float: right
+}
+.taocan_li_goods{
+  float: left;
+  width: 33.33% !important;
+  box-sizing: border-box;
+  line-height: 80rpx;
+  /* margin-left: 50rpx; */
+  padding-left:25rpx;
+ height: 100%;
+
+}
+.taocan_li:last-child{
+  border-bottom: 0px solid #f0f0f0;
+}
+.taocan_li_name {
+  padding-left: 25rpx;
+}
+
+.taocan_li .taocan_li_time {
+  color: #1f1f1f;
+  text-align: center;
+}
+.taocan_li .taocan_li_pri {
+  padding-right: 25rpx;
+  float: right;
+  color: #f25c5c;
+  text-align: right;
+}
+.bot_nav_pay {
+  width: 390rpx;
+}
+.model_style_main_box {
+  min-height: 400rpx;
+}
+.model_style_main_box_time {
+  width: 700rpx;
+  height: 100rpx;
+  margin: 0 auto;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+  overflow: hidden;
+}
+.model_style_main_box_time_text {
+  float: left;
+  font-size: 28rpx;
+  color: #1f1f1f;
+  line-height: 100rpx;
+}
+.model_style_main_box_time_check {
+  float: right;
+}
+.model_style_main_box_time_check view {
+  float: left;
+  line-height: 40rpx;
+  height: 100rpx;
+  margin-right: 20rpx;
+  padding-left: 10rpx;
+}
+.model_style_main_box_time_check view image {
+  float: left;
+  width: 34rpx;
+  height: 34rpx;
+  margin-top: 32rpx;
+  margin-right: 10rpx;
+}
+.model_style_main_box_time_check view .text {
+  float: left;
+  width: auto;
+  line-height: 100rpx;
+  font-size: 26rpx;
+  color:#1f1f1f;
+}

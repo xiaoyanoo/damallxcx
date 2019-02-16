@@ -1,0 +1,94 @@
+<!--pages/goods/index.wxml-->
+<view class="Container">
+  <view class="main">
+    <swiper current="{{currentTab}}" style="width:{{winWidth}}px;height: {{winHeight}}px;" class="swiper-box" duration="300" bindchange="bindChange">  
+    <!-- 全部 -->
+      <block wx:for="{{navList}}" wx:key="list" wx:for-index="listIndex">  
+        <swiper-item style="padding-top: 108rpx;">  
+          <scroll-view bindscrolltolower="bindDownLoad" data-index="{{listIndex}}" scroll-y="true" style="height:{{winHeight - 54}}px"> 
+            <view class="car_box_li_goods">
+              <block wx:for="{{datas[listIndex]}}" wx:for-item="shopItem" wx:key="shopKey" wx:for-index="shopIndex">
+                <view class="car_box_li_goods_li"  data-id="{{shopItem.goods_id}}">
+                  <view class="car_box_li_goods_li_con">
+                    <view class="car_box_li_goods_li_con_img">
+                      <image wx:if="{{shopItem.goods_img}}" src="{{jiekou + shopItem.goods_img}}"></image>
+                    </view>
+                    <view class="car_box_li_goods_li_con_main">
+                      <view class="car_box_li_goods_li_con_main_tit">{{shopItem.goods_name}}</view>
+                      <view class="car_box_li_goods_li_con_main_style">{{shopItem.goods_remark}}</view>
+                      <view class="car_box_li_goods_li_con_main_msg">共{{shopItem.all_phase}}期  当前第{{shopItem.cu_phase}}期</view>
+                      <!-- <view class="car_box_li_goods_li_con_main_pri">¥2000</view> -->
+                    </view>
+                    <view class="car_box_btn" data-index="{{listIndex}}" catchtap="{{shopItem.is_pre_send == 0 ? 'btnFsong': ''}}" data-id="{{shopItem.order_id}}">
+                      <block wx:if="{{shopItem.is_pre_send == 0 ||shopItem.is_pre_send == 1 }}">
+                        <block wx:if="{{shopItem.is_pre_send == 0}}">
+                          提前发完
+                        </block>
+                        <block wx:if="{{shopItem.is_pre_send == 1}}">
+                          正在发货
+                        </block>
+                      </block>
+                      
+                      <block wx:if="{{shopItem.is_on_sale == 0 ||shopItem.is_on_sale == 1 }}">
+                        <block wx:if="{{shopItem.is_on_sale == 0}}">
+                          已下架
+                        </block>
+                        <block wx:if="{{shopItem.is_on_sale == 1}}">
+                          再预定一份
+                        </block>
+                      </block>
+                     
+                    </view>
+                     <view class="zhankai" bindtap="getPresellGoods" data-id="{{shopItem.order_id}}">
+                      <block wx:if="{{order_id==shopItem.order_id}}">
+                       <image src="../../../images/sousuo.png" class="zankaiimg"/>
+                      </block>
+                       <block wx:else>
+                        <image src="../../../images/zankai.png" class="zankaiimg"/>
+                      </block>
+                     </view>
+                  </view>
+                </view>
+                <!-- 期数 -->
+                <view class="preiods {{order_id==shopItem.order_id?'':'none'}}">
+                  <block wx:for="{{perios_info}}" wx:key="key" wx:for-item="v">
+                    <view class="thisPreiods">
+                      <view class="thisPreiodss">第{{v.period
+}}期</view>
+                      <view class="goodsList">
+                        <block wx:for="{{v.gooods_info}}" wx:for-item="vo">
+                          <view>{{vo.goods_name}}</view>
+                        </block>
+                      </view>
+                      <view class="goodsnumber">
+                        <block wx:for="{{v.gooods_info}}" wx:for-item="vo">
+                          <view>x{{vo.goods_number}}</view>
+                        </block>
+                      </view>
+                      <view class="shiping_status">{{v.is_delivery==1?'已发':'未发'}}</view>
+                       <view class="clear"></view>
+                      <view class="tips_fahuo {{v.is_delivery==1?'':'none'}}" data-s_code="{{v.shipping_code}}" data-ex_num="{{v.express_num}}" data-s_name="{{v.shopping_name}}" data-o_id="{{v.order_id}}" bindtap='toLogistics'>查看物流</view>
+                      <view class="edit_address {{v.is_delivery==0?'':'none'}}" data-id="{{v.id}}" bindtap="linkRess" >修改收货地址</view>
+                      <view class="clear"></view>
+                    </view>
+                  </block>
+                    
+                </view>
+              </block>
+            </view>
+          </scroll-view> 
+        </swiper-item> 
+      </block> 
+         <!-- 全部 -->   
+    </swiper> 
+  </view>
+  <view class="nav">
+    <scroll-view scroll-x="true" class="scrollbar_main" scroll-left="{{navScrollLeft}}" scroll-with-animation="{{true}}">
+      <view class="swiper-tab">  
+          <block wx:for="{{navList}}" wx:for-item="nav" wx:for-index="index" wx:key="item">
+          <view class="swiper-tab-list {{currentTab==index ? 'on' : ''}}" data-current="{{index}}" bindtap="swichNav">{{nav}}</view>  
+          </block>
+      </view> 
+    </scroll-view>
+  </view>
+</view>

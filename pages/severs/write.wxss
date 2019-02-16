@@ -1,0 +1,15 @@
+/* pages/severs/write/write.wxss */
+.img,textarea{padding: 30rpx;width: 100%;}
+.img image{width: 165rpx;height: 165rpx;}
+.img image:nth-child(4n+4){margin-right: 0}
+.add-img{width: 165rpx;height: 165rpx;line-height: 165rpx;font-size: 64rpx;border:1rpx solid #ddd;display: inline-block;vertical-align: top;}
+.massage{padding: 0 30rpx;}
+.massage .list{padding: 20rpx 0;position: relative;}
+.list .iconfont{display: inline-block;vertical-align: top;}
+
+.list switch{transform: scale(0.9,0.9);position: absolute;top: 0;bottom: 0;right: 0;margin: auto;height: 68rpx;}
+
+.img,textarea,.massage{background: #fff;}
+.b_red{background: red !important;opacity: 0.8}
+.b_red:hover{background: red !important;opacity: 0.5}
+@import "/css/EKInfo/EKInfo-template-default.wxss";

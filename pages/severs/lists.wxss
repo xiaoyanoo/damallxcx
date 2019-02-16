@@ -1,0 +1,6 @@
+/* pages/severs/index/index.wxss */
+@import "list_tpl.wxss";
+/*我要发布*/
+.add-msg {position: fixed;bottom: 80rpx;right: 40rpx;z-index: 99;}
+.add-msg .add {width: 90rpx;height: 90rpx;line-height: 90rpx;border-radius: 50%;}
+@import "/css/EKInfo/EKInfo-template-default.wxss";

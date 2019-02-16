@@ -1,0 +1,55 @@
+<!--pages/index/pjList/index.wxml-->
+<view class="container">
+    <block wx:for="{{datas}}" wx:key="keys" wx:for-item="evItem" wx:for-index="evalIndex" >
+    <view class="shop_pj_box">
+      <view class="shop_pj_box_li clear" data-id="{{evItem.com_id}}">
+        <view class="shop_pj_box_li_l">
+          <image wx:if="{{evItem.head_pic}}" src="{{jiekou + evItem.head_pic}}"></image>
+        </view>
+        <view class="shop_pj_box_li_r">
+          <view class="shop_pj_box_li_r_top clear">
+            <view class="shop_pj_box_li_r_top_name">{{evItem.nickname}}</view>
+            <view class="shop_pj_box_li_r_top_time">{{evItem.add_time}}</view>
+          </view>
+          <view class="shop_pj_box_li_r_top_xx clear">
+            <image wx:for="{{5}}" wx:key="xxKey" src="../../../images/shangpinxiangqing_pingfen.png"></image>
+          </view>
+          <view class="shop_pj_box_li_r_center">{{evItem.content}}</view>
+          <view class="shop_pj_box_li_r_imgs clear">
+            <block wx:for="{{evItem.img}}" wx:key="keysImg" wx:for-item="imgItem" >
+              <image wx:if="{{imgItem}}" src="{{jiekou + imgItem}}"></image>
+            </block>
+          </view>
+
+          <view class="shop_pj_box_li_r_buttom clear">
+            <view wx:if="{{evItem.spec_key_name}}" class="shop_pj_box_li_r_buttom_style">{{evItem.spec_key_name}}</view>
+            <view class="shop_pj_box_li_r_buttom_icon" data-index="{{evalIndex}}" bindtap='showModel1' data-uid="{{evItem.user_id}}" data-com_id="{{evItem.com_id}}">
+              <image src="../../../images/shangpinxiangqing_pinglun.png"></image>
+            </view>
+          </view>
+          <view class="pj_box" wx:if="{{evItem.reply.length > 0}}">
+            <block wx:for="{{evItem.reply}}" wx:key="replyKey" wx:for-item="replyItem">
+              <view class="pj_box_li clear">
+                <view class="pj_box_li_msg">
+                  <view class="pj_box_li_name" wx:if="{{replyItem.user_id != user_id}}">{{replyItem.nickname}}</view>
+                  <text>回复：</text>
+                  <view class="pj_box_li_name">{{replyItem.reply_nickname}}</view>
+                  <text>{{replyItem.content}}</text>
+                </view>
+                <view class="pj_box_huifu" data-index="{{evalIndex}}" wx:if="{{replyItem.user_id != user_id}}" data-id="{{evItem.id}}" data-com_id="{{evItem.com_id}}" bindtap='showModel1' data-uid="{{evItem.user_id}}">回复</view>
+                
+              </view>
+            </block>
+          </view>
+        </view>
+      </view>
+    </view>
+    </block>
+  <!--评论输入框-->
+  <view class="popup" wx:if="{{show}}" catchtap="hideModel1">
+      <view class="pinglun-input">
+        <input class="mr10" bindinput='getInfo' name="content" focus="true" placeholder="说点什么~~~" />
+        <button catchtap='sendInfo'>发送</button>
+      </view>
+  </view>
+</view>

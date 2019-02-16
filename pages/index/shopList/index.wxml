@@ -1,0 +1,25 @@
+<!--pages/index/shopList/index.wxml-->
+<view class="container">
+  
+  <view class="shop_box clear">
+      <block wx:for="{{datas}}" wx:key="goodListKey">
+        <view class="shop_box_li" data-id="{{item.goods_id}}" bindtap='linkShopDetails'>
+          <view class="shop_box_li_img">
+            <image wx:if="{{item.goods_img}}" src="{{jiekou + item.goods_img}}"></image>
+          </view>
+          <view class="shop_box_li_tit">{{item.goods_name}}</view>
+          <view class="shop_box_li_text">{{item.goods_remark}}</view>
+          <view class="shop_box_li_num">月销 {{item.goods_sale}}件</view>
+          <view class="shop_box_li_pri">¥ {{item.price}}</view>
+          <!-- <view class="shop_box_li_btn" data-id="{{item.goods_id}}">
+            <image src="../../../images/shangpinliebiao_tianjia.png"></image>
+          </view> -->
+        </view>
+      </block>
+    </view>
+    <view class='shoplist_top'>
+      <view data-rank_type="0" bindtap='getList' class="shoplist_top_li {{rank_type == 0 ? 'active' : ''}}">综合</view>
+      <view data-rank_type="1" bindtap='getList' class="shoplist_top_li {{rank_type == 1 ? 'active' : ''}}">销量</view>
+      <view data-rank_type="{{price_type}}" bindtap='getList' class="shoplist_top_li {{rank_type == 2 ||rank_type == 3 ? 'active' : ''}}">价格</view>
+    </view>
+</view>

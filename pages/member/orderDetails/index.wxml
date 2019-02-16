@@ -1,0 +1,113 @@
+<!--pages/member/orderDetails/index.wxml-->
+<view class="container">
+  <view class="orderDetails">
+    <view class='orderDetails_top'>
+      <view class="orderDetails_top_box">
+        <view class="orderDetails_top_box_tit">
+
+          <block wx:if="{{datas.order_status == 3}}">
+            <image src="../../../images/dingdanxiangqing_shijian.png"></image>
+            <view> 订单已取消</view>
+          </block>
+          <block wx:else>
+            <block wx:if="{{datas.pay_status == 0}}">
+              <image src="../../../images/dingdanxiangqing_shijian.png"></image>
+              <view>待支付</view>
+            </block>
+            <block wx:else>
+              <block wx:if="{{datas.goods_list[0].return_goods_status == '-1'}}">
+                <block wx:if="{{datas.shipping_status == 0}}">
+                  <image src="../../../images/dingdanxiangqing_shijian.png"></image>
+                  <view>商品发货中</view>
+                </block>
+                <block wx:if="{{datas.shipping_status == 1}}">
+                  <image src="../../../images/dingdanxiangqing_shijian.png"></image>
+                  <view>卖家已发货</view>
+                </block>
+                <block wx:if="{{datas.shipping_status == 2}}">
+                  <image src="../../../images/dingdanxiangqing_shijian.png"></image>
+                  <view>当前发货第{{phase}}期</view>
+                </block>
+              </block>
+              <block wx:else>
+                <block wx:if="{{datas.goods_list[0].return_goods_status == 0}}">
+                  <image src="../../../images/dingdanxiangqing_shijian.png"></image>
+                  <view>退款申请中</view>
+                </block>
+                <block wx:if="{{datas.goods_list[0].return_goods_status == 1}}">
+                  <image src="../../../images/dingdanxiangqing_wancheng.png"></image>
+                  <view>退款已通过</view>
+                </block>
+              </block>
+            </block>
+          </block>
+        </view>
+        <!-- <view class="orderDetails_top_box_msg">还剩23小时59分后将自动删除订单</view> -->
+      </view>
+    </view>
+    <view class="order_details">
+      <view class="order_details_top">
+        <view class="order_details_top_name">
+          <image src="../../../images/dingdanxiangqing_shouhuoren.png"></image>
+          <text>收货人：{{datas.address.consignee}} </text>
+          <text class="order_iphone">{{datas.address.mobile}}</text>
+        </view>
+        <view class="order_details_top_msg">
+          <image src="../../../images/dingdanxiangqing_dizhi.png"></image>
+          <text>收货地址：{{datas.address.address1}}{{datas.address.address2}}</text>
+        </view>
+      </view>
+
+      <view class="car_box_li_goods">
+        <block wx:for="{{datas.goods_list}}" wx:for-item="shopItem" wx:key="shopKey" wx:for-index="shopIndex">
+          <view class="car_box_li_goods_li">
+            <view class="car_box_li_goods_li_con">
+              <view class="car_box_li_goods_li_con_img">
+                <image wx:if="{{shopItem.goods_img}}" src="{{jiekou + shopItem.goods_img}}"></image>
+              </view>
+              <view class="car_box_li_goods_li_con_main">
+                <view class="car_box_li_goods_li_con_main_tit">{{shopItem.goods_name}}</view>
+                <view class="car_box_li_goods_li_con_main_style">{{shopItem.goods_remark}}</view>
+                <view class="car_box_li_goods_li_con_main_pri">¥{{shopItem.goods_price}}</view>
+              </view>
+              <view class="car_box_li_goods_li_con_num">x{{shopItem.goods_num}}</view>
+            </view>
+          </view>
+        </block>
+      </view>
+
+      <view class="order_sn {{index == 1 ? '': 'none'}}">
+        <view class="order_sn_text">订单编号：{{datas.order_sn}}</view>
+        <view class="order_sn_text">创建时间：{{datas.add_time}}</view>
+        <view class="order_sh" wx:if="{{datas.pay_status != 0}}" bindtap='tkDetails' data-spec_key="{{datas.goods_list[0].spec_key}}" data-goods_id="{{datas.goods_list[0].goods_id}}" data-id="{{datas.order_id}}">申请售后</view>
+      </view>
+
+      <view class="order_tk {{index == 3 ? '': 'none'}}">
+        <view class="order_tk_li">退款原因：{{datas.reason}}</view>
+        <view class="order_tk_li">退款金额：￥{{datas.price}}</view>
+        <view class="order_tk_li">退款编号：{{datas.return_sn}}</view>
+        <view class="order_tk_li">创建时间：{{datas.create_time}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="order_btn {{index == 3 ? 'none': ''}}">
+    <block wx:if="{{status == 0}}">
+      <view class="order_btn_li" data-id="{{datas.order_id}}" data-order_sn="{{datas.order_sn}}" bindtap='getWxPay'>立即支付</view>
+       <view class="order_btn_li" data-id="{{datas.order_id}}" bindtap='cancelOrder'>取消订单</view> 
+    </block>
+    <block wx:if="{{status == 1}}">
+      <block wx:if="{{datas.shipping_status == 1}}">
+        <view class="order_btn_li" data-id="{{datas.order_id}}" bindtap='confirmOrder'>确认收货</view>
+      </block>
+      <view class="order_btn_li" data-id="{{datas.order_id}}" bindtap='linkLogistics'>查看物流</view>
+    </block>
+    <block wx:if="{{status == 2}}">
+      <!-- <view class="order_btn_li" bindtap='linkGoodsComment'>前往评价</view> -->
+      <view class="order_btn_li" data-id="{{datas.order_id}}" bindtap='linkLogistics'>查看物流</view>
+      <view class="order_btn_li" data-id="{{datas.order_id}}" bindtap='delOrder'>删除订单</view>
+    </block>
+    <block wx:if="{{status == 3}}">
+      <view class="order_btn_li" data-id="{{datas.order_id}}" bindtap='delOrder'>删除订单</view>
+    </block>
+  </view>
+</view>

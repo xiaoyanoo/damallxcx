@@ -1,0 +1,23 @@
+<!--pages/member/commissionPay/index.wxml-->
+<view class="container">
+  <view class="commissionPay">
+    <view class="commissionPay_tit">可提现金额：{{all_fee}}</view>
+    <view class="commissionPay_tit">请填写提现金额：</view>
+    <view class="commissionPay_ipt">
+      <view class="commissionPay_ipt_text">¥</view>
+      <input class="commissionPay_num" bindinput='setPrice' type='number' maxlength="{{all_fee}}"></input>
+    </view>
+    <view class="order_check_img clear">
+      <view class="order_check_texts">请上传微信收款码：</view>
+      <block wx:for="{{image_photo}}" wx:key="kess">
+        <view class="order_check_img_li">
+          <image wx:if="{{item}}" src="{{item}}"></image>
+        </view>
+      </block>
+      <view class="order_check_img_li" bindtap='choice'>
+        <image src="../../../images/dingdanguanli_tianjiatupian.png"></image>
+      </view>
+    </view>
+    <view class="comment_btn" bindtap='sendInfoBtn'>提交</view>
+  </view>
+</view>

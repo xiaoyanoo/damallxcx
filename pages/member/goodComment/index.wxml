@@ -1,0 +1,48 @@
+<!--pages/member/goodComment/index.wxml-->
+<view class="container">
+  <view class="comment">
+    <view class="car_box_li_goods">
+      <block wx:for="{{datas.goods_list}}" wx:for-item="shopItem" wx:key="shopKey" wx:for-index="shopIndex">
+        <view class="car_box_li_goods_li">
+          <view class="logistics_top">
+            <view class="logistics_top_img">
+              <image wx:if="{{shopItem.goods_img}}" src="{{jiekou + shopItem.goods_img}}"></image>
+              <view class="logistics_top_img_msg">{{shopItem.goods_num}}件商品</view>
+            </view>
+            <view class="logistics_top_main">
+              <view class="car_box_li_goods_li_con_main_tit">{{shopItem.goods_name}}</view>
+              <view class="car_box_li_goods_li_con_main_style">{{shopItem.goods_remark}}</view>
+              <view class="car_box_li_goods_li_con_main_pri">¥{{shopItem.goods_price}}</view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+    <view class="order_check">
+      <view class="order_check_text">描述相符</view>
+      <view class="order_check_xx">
+        <block wx:for="{{5}}" wx:key="keys">
+            <image data-index="{{index}}" bindtap='setXx' src="../../../images/{{index <= indexs ? 'dingdanguanli_pingfen_yixuanzhong' : 'dingdanguanli_pingfen_weixuanzhong'}}.png"></image>
+        </block>
+        
+      </view>
+    </view>
+    <view class="order_check_img clear">
+      <view class="order_check_texts">上传图片</view>
+      <block wx:for="{{image_photo}}" wx:key="kess">
+        <view class="order_check_img_li">
+          <image wx:if="{{item}}" src="{{item}}"></image>
+        </view>
+      </block>
+      <view class="order_check_img_li" bindtap='choice'>
+        <image src="../../../images/dingdanxiangqing_tuikuan_tianjiatupian.png"></image>
+      </view>
+    </view>
+    <view class="rank">
+      <textarea class="rank_ipt" placeholder='备注（最多输入200字）' placeholder-style='line-height: 40rpx; font-size: 28rpx; color:#b3b3b3;' value="{{rank_val}}" bindinput='getrank_ipt'></textarea>
+    </view>
+  </view>
+
+
+  <view class="comment_btn" bindtap='sendInfoBtn'>评价</view>
+</view>

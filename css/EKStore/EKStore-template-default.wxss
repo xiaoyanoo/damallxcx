@@ -1,0 +1,21 @@
+/*没有更多了*/
+.nothing{width: 70%;margin-left: auto;margin-right: auto;}
+.nothing .line{height: 1rpx;background: #b2b2b2;color:#b2b2b2;margin-top: 20rpx;border-bottom:1px solid #ddd;
+}
+
+.bgwhite{background: #fff;}
+
+.red{color: #e64340;}
+.green,.ress-nav-active,.ress-side-active,.sp-item-i.active,.filter-item-active,.popup-btn>view:nth-child(n+2){ color: #492c19;}
+page .wx-swiper-dot.wx-swiper-dot-active{background: #492c19 !important;}
+.goods-title::before,.yuding,button[type="primary"],.ress-side-active::after,.count-btn,.cart-circle,.comm-name-score,.other-msg text,.popup-btn>view{background: #492c19;}
+.ress-nav-active::before{ border-bottom-color:#492c19;}
+.sp-item-i.active::before,.popup-btn>view:nth-child(n+2){ border-color:#492c19;}
+button[type="primary"][disabled],button[type="primary"][loading],button[type="primary"]:active{background: #58351e;}
+
+
+.counts,.count-spec-c{ background:#f35150;}
+
+
+
+

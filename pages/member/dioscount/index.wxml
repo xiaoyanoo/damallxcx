@@ -1,0 +1,43 @@
+<!--pages/goods/index.wxml-->
+<view class="Container">
+  <view class="main">
+    <swiper current="{{currentTab}}" style="width:{{winWidth}}px;height: {{winHeight}}px;" class="swiper-box" duration="300" bindchange="bindChange">  
+    <!-- 全部 -->
+      <block wx:for="{{navList}}" wx:key="list" wx:for-index="listIndex">  
+        <swiper-item style="padding-top: 108rpx;">  
+          <scroll-view bindscrolltolower="bindDownLoad" scroll-y="true" style="height:{{winHeight - 54}}px"> 
+            <view class="car_box_li_goods">
+              <block wx:for="{{datas[listIndex]}}" wx:for-item="shopItem" wx:key="shopKey" wx:for-index="shopIndex">
+                <view class="turntable_box_li">
+                  <view class="turntable_box_li_bg">
+                    <image src="../../../images/{{listIndex == 0 ? 'zhuanpan_jiangpin' : 'zhekouquan_guoqi_bg'}}.png"></image>
+                  </view>
+                  <view class="turntable_box_li_box">
+                    <view class="turntable_box_li_box_img">
+                      <image wx:if="{{shopItem.img}}" src="{{jiekou + shopItem.img}}"></image>
+                    </view>
+                    <view class="turntable_box_li_box_con {{listIndex == 0 ? 'show1' : ''}} {{listIndex == 1 ? 'show2' : ''}} {{listIndex == 2 ? 'show3' : ''}}">
+                      <view class="turntable_box_li_box_con_tit">{{shopItem.name}} 折扣券</view>
+                      <view class="turntable_box_li_box_con_msg">适用于全部商品（预订商品除外）</view>
+                    </view>
+                  </view>
+                  <view class="turntable_box_li_time">获得时间：{{shopItem.use_start_time}}</view>
+                </view>
+              </block>
+            </view>
+          </scroll-view> 
+        </swiper-item> 
+      </block> 
+         <!-- 全部 -->   
+    </swiper> 
+  </view>
+  <view class="nav">
+    <scroll-view scroll-x="true" class="scrollbar_main" scroll-left="{{navScrollLeft}}" scroll-with-animation="{{true}}">
+      <view class="swiper-tab">  
+          <block wx:for="{{navList}}" wx:for-item="nav" wx:for-index="index" wx:key="item">
+          <view class="swiper-tab-list {{currentTab==index ? 'on' : ''}}" data-current="{{index}}" bindtap="swichNav">{{nav}}</view>  
+          </block>
+      </view> 
+    </scroll-view>
+  </view>
+</view>

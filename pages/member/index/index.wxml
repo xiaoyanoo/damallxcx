@@ -1,0 +1,141 @@
+<!--pages/member/index/index.wxml-->
+<view class="container">
+  <view class="my_top">
+    <view class="my_top_box clear">
+      <view class="my_top_box_pic">
+        <block wx:if="{{user_info.head_pic}}">
+          <image class="my_top_box_pic_top" src="{{user_info.head_pic}}"></image>
+          <block wx:if="{{user_info.level == 1}}">
+            <image class="my_top_box_pic_icon" src="../../../images/huiyuan_putong.png"></image>
+          </block>
+          <block wx:if="{{user_info.level == 2}}">
+            <image class="my_top_box_pic_icon" src="../../../images/huiyuan_baiyin.png"></image>
+          </block>
+          <block wx:if="{{user_info.level == 3}}">
+            <image class="my_top_box_pic_icon" src="../../../images/huiyuan_huangjin.png"></image>
+          </block>
+          <block wx:if="{{user_info.level == 4}}">
+            <image class="my_top_box_pic_icon" src="../../../images/huiyuandengij_04.png"></image>
+          </block>
+          <block wx:if="{{user_info.level == 5}}">
+            <image class="my_top_box_pic_icon" src="../../../images/huiyuandengij_05.png"></image>
+          </block>
+        </block>
+        <block wx:else>
+          <image class="my_top_box_pic_top" src="../../../images/wode_weidenglu.png"></image>
+        </block>
+      </view>
+      <block wx:if="{{user_id}}">
+        <view class="my_top_box_name">
+          <view class="my_top_box_name_nickName">{{user_info.nickname}}</view>
+          <view class="my_top_box_name_msg">
+            <text bindtap='linkmember'>
+            <block wx:if="{{user_info.level == 1}}">普通会员</block>
+            <block wx:if="{{user_info.level == 2}}">白银会员</block>
+            <block wx:if="{{user_info.level == 3}}">黄金会员</block>
+            <block wx:if="{{user_info.level == 4}}">铂金会员</block>
+            <block wx:if="{{user_info.level == 5}}">钻石会员</block>
+          </text>
+          </view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="my_top_box_name">
+          <button class='hiddenbtn userLogin' bindgetuserinfo='login' open-type='getUserInfo'>点击登录</button>
+        </view>
+      </block>
+      <view class="my_top_box_setup" bindtap='linkSetup'>
+        <image src="../../../images/wode_shezhi.png"></image>
+      </view>
+      <view class="my_choujiang" bindtap='myChoujiang'>
+        <text>我的抽奖</text>
+      </view>
+
+
+
+    </view>
+
+    <view class="my_order">
+      <view class="my_order_box" data-num="0" bindtap='orderList'>
+        <view class="my_order_box_img">
+          <image src="../../../images/wode_daizhifu.png"></image>
+        </view>
+        <view class="my_order_box_text">待支付</view>
+      </view>
+      <view class="my_order_box" data-num="1" bindtap='orderList'>
+        <view class="my_order_box_img">
+          <image src="../../../images/wode_daishouhuo.png"></image>
+        </view>
+        <view class="my_order_box_text">待收货</view>
+      </view>
+      <view class="my_order_box" data-num="2" bindtap='orderList'>
+        <view class="my_order_box_img">
+          <image src="../../../images/wode_daipingjia.png"></image>
+        </view>
+        <view class="my_order_box_text">待评价 </view>
+      </view>
+      <view class="my_order_box" data-num="3" bindtap='orderList'>
+        <view class="my_order_box_img">
+          <image src="../../../images/wode_shouhuo.png"></image>
+        </view>
+        <view class="my_order_box_text">退款/售后 </view>
+      </view>
+      <view class="my_order_box" bindtap='linkDioscount'>
+        <view class="my_order_box_img">
+          <image src="../../../images/wode_zhekouquan.png"></image>
+        </view>
+        <view class="my_order_box_text">折扣券 </view>
+      </view>
+    </view>
+  </view>
+  <view class="my_orderList">
+    <view class="my_orderList_box" bindtap='linkZzlist'>
+      <view class="my_orderList_box_img">
+        <image src="../../../images/wode_zhengzhuangzizhen.png"></image>
+      </view>
+      <view class="my_orderList_box_text">症状自诊</view>
+    </view>
+    <view class="my_orderList_box" bindtap='linkMyReservation'>
+      <view class="my_orderList_box_img">
+        <image src="../../../images/wode_wodeyuding.png"></image>
+      </view>
+      <view class="my_orderList_box_text">我的预订</view>
+    </view>
+    <view class="my_orderList_box" bindtap='linkCommission'>
+      <view class="my_orderList_box_img">
+        <image src="../../../images/wode_yongjintixian.png"></image>
+      </view>
+      <view class="my_orderList_box_text">佣金提现</view>
+    </view>
+    <view class="my_orderList_box" bindtap='linkmember'>
+      <view class="my_orderList_box_img">
+        <image src="../../../images/wode_wodexiaxian.png"></image>
+      </view>
+      <view class="my_orderList_box_text">我的会员</view>
+    </view>
+    <view class="my_orderList_box" bindtap='linkNews'>
+      <view class="my_orderList_box_img">
+        <image src="../../../images/wode_xiaoxi.png"></image>
+      </view>
+      <view class="my_orderList_box_text">消息推送</view>
+    </view>
+    <view class="my_orderList_box" bindtap='linkComment'>
+      <view class="my_orderList_box_img">
+        <image src="../../../images/wode_pinglun.png"></image>
+      </view>
+      <view class="my_orderList_box_text">我的评论</view>
+    </view>
+    <view class="my_orderList_box" bindtap='btnMyShoucang'>
+      <view class="my_orderList_box_img">
+        <image src="../../../images/wode_shoucang.png"></image>
+      </view>
+      <view class="my_orderList_box_text">我的收藏</view>
+    </view>
+    <view class="my_orderList_box" bindtap='turntable'>
+      <view class="my_orderList_box_img">
+        <image src="../../../images/wode_zhuanpan.png"></image>
+      </view>
+      <view class="my_orderList_box_text">转盘礼品</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,32 @@
+<!--pages/member/commission/index.wxml-->
+<view class="container">
+  <view class="commission">
+    <view class="commission_top">
+      <view class="commission_top_tit">
+        <view class="commission_top_tit_text">奖励佣金(元)：</view>
+        <view class="commission_top_tit_mx" bindtap='linkCommissionMx'>明细</view>
+      </view>
+      <view class="commission_top_pri">¥ <text>{{distribut_money}}</text></view>
+      <view class="commission_top_ipt"><view class="commission_top_pri_btn" data-num="{{distribut_money}}" bindtap='linkCommissionPay'>提现</view></view>
+    </view>
+    <view class="commission_nav">
+      <view class="commission_nav_text">预期到达的健康金:</view> 
+      <view class="commission_nav_next">什么是健康金?</view> 
+    </view>
+    <view class="commission_main {{datas.length <= 0 ? 'none' : ''}}">
+      <block wx:for="{{datas}}" wx:key="keys">
+        <view class="commission_main_li clear {{(index + 1) % 2 == 0 ? 'active' : ''}}">
+          <view class="commission_main_li_l">
+            <view class="commission_main_li_l_tit">健康金</view>
+            <view class="commission_main_li_l_time">预估到达时间：{{item.expect_time}}</view>
+          </view>
+          <view class="commission_main_li_pri">+{{item.expect_money}}</view>
+        </view>
+      </block> 
+    </view>
+    <view class="commission_main_img {{datas.length > 0 ? 'none' : ''}}">
+      <image src="../../../images/kongzhuangtai.png"></image>
+      <view class="commission_main_img_text">您暂无健康金哦~</view>
+    </view>
+  </view>
+</view>

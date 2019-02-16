@@ -1,0 +1,59 @@
+<!--pages/member/tkDetails/index.wxml-->
+ <view class="container">
+  <view class="tk_box">
+    <view class="car_box_li_goods">
+      <block wx:for="{{datas.goods_list}}" wx:for-item="shopItem" wx:key="shopKey" wx:for-index="shopIndex">
+        <view class="car_box_li_goods_li">
+          <view class="logistics_top">
+            <view class="logistics_top_img">
+              <image wx:if="{{shopItem.goods_img}}" src="{{jiekou + shopItem.goods_img}}"></image>
+              <view class="logistics_top_img_msg">{{shopItem.goods_num}}件商品</view>
+            </view>
+            <view class="logistics_top_main">
+              <view class="car_box_li_goods_li_con_main_tit">{{shopItem.goods_name}}</view>
+              <view class="car_box_li_goods_li_con_main_style">{{shopItem.goods_remark}}</view>
+              <view class="car_box_li_goods_li_con_main_pri">¥{{shopItem.goods_price}}</view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+    <view class="order_check" bindtap='showModle'>
+      <view class="order_check_text">退款原因： {{tkTitle}}</view>
+      <view class="setup_li_next">
+        <image src="../../../images/querendingdan_zhekouquan.png"></image>
+      </view>
+      <view class="order_check_msg"></view>
+    </view>
+    <view class="order_check_img clear">
+      <view class="order_check_texts">上传图片</view>
+      <block wx:for="{{image_photo}}" wx:key="kess">
+        <view class="order_check_img_li">
+          <image wx:if="{{item}}" src="{{item}}"></image>
+        </view>
+      </block>
+      <view class="order_check_img_li" bindtap='choice'>
+        <image src="../../../images/dingdanxiangqing_tuikuan_tianjiatupian.png"></image>
+      </view>
+    </view>
+    <view class="rank">
+      <textarea class="rank_ipt" placeholder='备注（最多输入200字）' disabled='{{disable}}' placeholder-style='line-height: 40rpx; font-size: 28rpx; color:#b3b3b3;' bindinput='getrank_ipt'></textarea>
+    </view>
+    <view class="tk_btn" bindtap='sendInfoBtn'>提交申请</view>
+  </view>
+  <view class="showModel {{none == 0 ? 'none' : ''}}">
+    <view class="hideModel" catchtap='hideModle'></view>
+    <view class="showModel_box">
+      <view class="showModel_top">选择退款原因（必选）</view>
+      <view class="showModel_box_list">
+        <block wx:for="{{tkInfo}}" wx:key="keysss">
+          <view class="showModel_box_list_li" bindtap='getTk' data-title="{{item.title}}" data-id="{{item.id}}">{{item.title}}</view>
+        </block>
+      </view>
+      <view class="showModel_box_btn">
+        <view class="showModel_box_ipt" catchtap='hideModle'>取消</view>
+      </view>
+    </view>
+  </view>
+
+ </view>

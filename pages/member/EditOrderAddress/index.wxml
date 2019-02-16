@@ -1,0 +1,29 @@
+<!--pages/member/ress/index.wxml-->
+<view class="container">
+  <view class="ress">
+    <view class="ress_li" catchtap="getAddress" wx:for="{{datas}}" wx:key="keys" data-id="{{item.address_id}}">
+      <view class="ress_li_tit">{{item.name}} {{item.phone}}</view>
+      <view class="ress_li_msg">{{item.address1}}{{item.address2}}</view>
+      <view class="ress_li_box clear">
+        <view class="ress_li_box_left" data-id="{{item.address_id}}" data-index="{{index}}" catchtap='setDefault'>
+          <view class="ress_li_box_left_icon">
+          <block wx:if="{{item.is_default == 1}}">
+            <image src="../../../images/gouwuche_xuanzhong.png"></image>
+          </block>
+          <block wx:else>
+            <image src="../../../images/gouwuche_weixuanzhong.png"></image>
+          </block>
+          </view>
+          <view class="ress_li_box_left_text">默认地址</view>
+        </view>
+        <view class="ress_li_box_right" wx:if="{{show == ''}}">
+          <view class="ress_li_box_right_btn" data-id="{{item.address_id}}" catchtap='linkAddress'>编辑</view>
+          <view class="ress_li_box_right_btn" data-index="{{index}}" data-id="{{item.address_id}}" catchtap='delAddress'>删除</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="address" data-id="0" bindtap='linkAddress'>
+    新增收货地址
+  </view>
+</view>

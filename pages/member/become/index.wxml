@@ -1,0 +1,12 @@
+<!--pages/member/become/index.wxml-->
+<view class="container">
+  <view class="become">
+    <view class="become_top">
+      <image src="../../../images/chengweishangjia_pic.png"></image>
+    </view>
+    <view class="become_main">
+      <view class="become_main_tit">请联系客服商讨</view>
+      <view class="become_main_msg">平台客服电话：<text>{{datas.phone}}</text></view>
+    </view>
+  </view>
+</view>

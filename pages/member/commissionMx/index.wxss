@@ -1,0 +1,24 @@
+/* pages/member/commissionMx/index.wxss */
+@import "../commission/index.wxss";  
+Page{
+  background: #f0f0f0;
+}
+.commission_main_li {
+  width: 100%;
+  border-bottom: 1px solid #f0f0f0;
+}
+.thisTab{
+  padding:15rpx 0; 
+  float: left;
+  width: 33.3333%;
+  text-align: center;
+}
+.clear{
+  clear:both;
+}
+.TabActive{
+  border-bottom: 1px solid #85edf5;
+}
+.none{
+  display: none;
+}

@@ -1,0 +1,74 @@
+<!--pages/goods/index.wxml-->
+<view class="Container">
+  <view class="car_box">
+    <view class="car_box_li" wx:for="{{datas}}" wx:key="datasKey" wx:for-item="datasItem" wx:for-index="datasIndex" >
+      <view class='car_box_li_store' data-id="{{datasItem.shopId}}">
+        <view class="car_box_li_store_icon" data-indexs="{{datasIndex}}" catchtap='selectBtnMax'>
+          <block wx:if="{{datasItem.status == 0}}">
+            <image class="image" src="../../images/gouwuche_xuanzhong.png"></image>
+          </block>
+          <block wx:else>
+            <image class="image" src="../../images/gouwuche_weixuanzhong.png"></image>
+          </block>
+        </view>
+        <view class="car_box_li_store_con">
+          <view class="car_box_li_store_con_icon" data-indexs="{{datasIndex}}">
+            <image wx:if="{{datasItem.shopIcon}}" src="{{jiekou + datasItem.shopIcon}}"></image>
+          </view>
+          <view class="car_box_li_store_con_name">{{datasItem.shopName}}</view>
+          <view class="car_box_li_store_con_del" bindtap='delShop' data-indexs="{{datasIndex}}">
+            <image src="../../images/gouwuche_shanchu.png"></image>
+          </view>
+        </view>
+      </view>
+      <view class="car_box_li_goods">
+        <block wx:for="{{datasItem.goodsList}}" wx:for-item="shopItem"  wx:key="shopKey" wx:for-index="shopIndex">
+            <view class="car_box_li_goods_li" data-id="{{shopItem.goods_id}}">
+              <view class="car_box_li_goods_li_icon" catchtap='selectBtnMin' data-index="{{shopIndex}}" data-indexs="{{datasIndex}}">
+                <block wx:if="{{shopItem.status == 0}}">
+                  <image src="../../images/gouwuche_xuanzhong.png"></image>
+                </block>
+                <block wx:else>
+                  <image src="../../images/gouwuche_weixuanzhong.png"></image>
+                </block>
+              </view>
+              <view class="car_box_li_goods_li_con">
+                <view class="car_box_li_goods_li_con_img">
+                  <image wx:if="{{shopItem.goods_img}}" src="{{jiekou + shopItem.goods_img}}"></image>
+                </view>
+                <view class="car_box_li_goods_li_con_main">
+                  <view class="car_box_li_goods_li_con_main_tit">{{shopItem.goods_name}}</view>
+                  <view class="car_box_li_goods_li_con_main_style">{{shopItem.goodsAttr}}</view>
+                  <view class="car_box_li_goods_li_con_main_pri">¥{{shopItem.price}}</view>
+                </view>
+                <view class="add_box">
+                  <view class="add_box_del" catchtap='delNum' data-index="{{shopIndex}}" data-indexs="{{datasIndex}}">-</view>
+                  <input class="add_box_ipt" type="number" disabled='true' value="{{shopItem.goods_num}}"></input>
+                  <view class="add_box_add" catchtap='addNum' data-index="{{shopIndex}}" data-indexs="{{datasIndex}}">+</view>
+                </view>
+              </view>
+            </view>
+        </block>
+      </view>
+    </view>
+  </view>
+  <view class="car_bottom">
+      <view class="car_bottom_all" bindtap='selectBtnAll'>
+        <block wx:if="{{status == 0 && datas.length > 0}}">
+          <image src="../../images/gouwuche_xuanzhong.png"></image>
+        </block>
+        <block wx:else>
+          <image src="../../images/gouwuche_weixuanzhong.png"></image>
+        </block>
+        全选
+      </view>
+      <view class="car_bottom_pri">
+        <view class="car_bottom_pri_text">
+          合计：
+          <text>¥</text>
+        </view>
+        <view class="car_bottom_pri_num">{{allPri}}</view>
+      </view>
+      <view class="car_bottom_pay" bindtap='linkOrderPay'>结算({{falgNum}})</view>
+  </view>
+</view>

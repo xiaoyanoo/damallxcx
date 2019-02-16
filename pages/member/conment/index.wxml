@@ -1,0 +1,64 @@
+<!--pages/goods/index.wxml-->
+<view class="Container">
+  <view class="main">
+    <swiper current="{{currentTab}}" style="width:{{winWidth}}px;height: {{winHeight}}px;" class="swiper-box" duration="300" bindchange="bindChange">  
+    <!-- 全部 -->
+      <block wx:for="{{navList}}" wx:key="list" wx:for-index="navIndex">  
+        <swiper-item style="padding-top: 108rpx;">  
+          <scroll-view bindscrolltolower="bindDownLoad" data-index="{{navIndex}}" scroll-y="true" style="height:{{winHeight - 54}}px"> 
+            <view class="car_box_li_goods">
+              <block wx:for="{{datas[navIndex]}}" wx:for-item="shopItem" wx:key="shopKey" wx:for-index="shopIndex">
+                <view class="comment_li">
+                  <view class="comment_li_top" data-check="{{shopItem.status}}" data-id="{{shopItem.goods_id}}">
+                    <view class="comment_li_top_img">                    
+                      <image wx:if="{{shopItem.goods_img}}" src="{{jiekou +shopItem.goods_img}}"></image>
+                    </view>
+                    <view class="comment_li_top_name">{{shopItem.goods_name}}</view>
+                    <view class="comment_li_top_icon">
+                      <image src="../../../images/querendingdan_zhekouquan.png"></image>
+                    </view>
+                  </view>
+                  <view class="comment_li_box_top">
+                    <view class="comment_li_box_top_name">
+                      商品评价：
+                    </view>
+                    <view class="comment_li_box_top_xx">
+                    <block wx:for="{{shopItem.rank}}" wx:key="keyss">
+                      <image src="../../../images/dingdanguanli_pingfen_yixuanzhong.png"></image>
+                    </block>
+                    </view>
+                  </view>
+                  <view class="comment_li_box_msg" wx:if="{{shopItem.nickname}}">
+                    <block wx:if="{{navIndex == 1}}">
+                      {{shopItem.nickname}} 回复我：
+                    </block>
+                    <block wx:if="{{navIndex == 0}}">
+                       回复 {{shopItem.nickname}}：
+                    </block>
+                     
+                  </view>
+                  <view class="comment_li_box_con">
+                      {{shopItem.content}}
+                  </view>
+                  <view class="comment_li_time">
+                    {{shopItem.add_time}}
+                  </view>
+                </view>
+              </block>
+            </view>
+          </scroll-view> 
+        </swiper-item> 
+      </block> 
+         <!-- 全部 -->   
+    </swiper> 
+  </view>
+  <view class="nav">
+    <scroll-view scroll-x="true" class="scrollbar_main" scroll-left="{{navScrollLeft}}" scroll-with-animation="{{true}}">
+      <view class="swiper-tab">  
+          <block wx:for="{{navList}}" wx:for-item="nav" wx:for-index="index" wx:key="navkeys">
+          <view class="swiper-tab-list {{currentTab==index ? 'on' : ''}}" data-current="{{index}}" bindtap="swichNav">{{nav}}</view>  
+          </block>
+      </view> 
+    </scroll-view>
+  </view>
+</view>

@@ -1,0 +1,26 @@
+/* pages/member/setup/index.wxss */
+.setup_li {
+  width: 100%;
+  height: 88rpx;
+  border-bottom: 1px solid #f0f0f0;
+  line-height: 88rpx;
+}
+.setup_li_name {
+  float: left;
+  font-size: 28rpx;
+  line-height: 88rpx;
+  margin-left: 25rpx;
+}
+.setup_li_next {
+  float: right;
+  height: 88rpx;
+  width: 88rpx;
+  margin-right: 0rpx;
+}
+.setup_li_next image{
+  width: 14rpx;
+  height: 26rpx;
+  margin-top: 31rpx;
+  margin-left: 40rpx;
+  float: left;
+}

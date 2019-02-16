@@ -1,0 +1,32 @@
+<!--pages/member/turntable/index.wxml-->
+<view class="container">
+  <view class="turntable_top">
+    <image src="../../../images/zhuanpan_bg.png"></image>
+  </view>
+  <view class="turntable_box {{datas.length<=0 ? 'none':''}}">
+  <block wx:for="{{datas}}" wx:key="keys">
+    <view class="turntable_box_li">
+      <view class="turntable_box_li_bg">
+        <image src="../../../images/zhuanpan_jiangpin.png"></image>
+      </view>
+      <view class="turntable_box_li_box">
+        <view class="turntable_box_li_box_img">
+          <image wx:if="{{item.gift_img}}" src="{{jiekou + item.gift_img}}"></image>
+        </view>
+        <view class="turntable_box_li_box_con">
+          <view class="turntable_box_li_box_con_tit">{{item.gift_name}}</view>
+          <view class="turntable_box_li_box_con_msg">联系平台领取</view>
+        </view>
+      </view>
+      <view class="turntable_box_li_time">获得时间：{{item.create_time}}</view>
+    </view>
+  </block>
+  </view>
+
+  <view class="msg {{datas.length>0 ? 'none':''}}">
+    <view class="msg_img">
+      <image src="../../../images/kongzhuangtai.png"></image>
+    </view>
+    <view class="msg_text">您还没有抽到奖品哦，赶紧去购物，获取抽奖机会~</view>
+  </view>
+</view>

@@ -1,0 +1,151 @@
+/* pages/member/orderList/index.wxss */
+.order {
+  border-bottom: 20rpx solid #f0f0f0;
+}
+.car_box_li_store {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 2px solid #f0f0f0;
+}
+.car_box_li_store_icon {
+  width: 80rpx;
+  height: 80rpx;
+  float: left;
+}
+.car_box_li_store_icon image {
+  width: 36rpx;
+  height: 36rpx;
+  margin-left: 22rpx;
+  margin-top: 22rpx;
+}
+.car_box_li_store_con_icon {
+  width: 60rpx;
+  height: 54rpx;
+  float: left;
+  margin-top: 13rpx;
+  margin-left: 25rpx;
+}
+.car_box_li_store_con_icon image {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.car_box_li_store_con_name {
+  float: left;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  color: #1f1f1f;
+  margin-left: 20rpx;
+  width: 450rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.status_msg {
+  float: right;
+  margin-right: 25rpx;
+  font-size: 24rpx;
+  line-height: 80rpx;
+  color: #ffa000;
+}
+
+.car_box_li_goods_li {
+  width: 100%;
+  height: 210rpx;
+  position: relative;
+  background-color: #ffffff;
+}
+.car_box_li_goods_li_con {
+  height: 210rpx;
+  box-sizing: border-box;
+  width: 100%;
+  float: left;
+  border-bottom: 1px solid #f0f0f0;
+}
+.car_box_li_goods_li_con_img {
+  float: left;
+  width: 150rpx;
+  height: 150rpx;
+  margin-top: 30rpx;
+  margin-left: 25rpx;
+  overflow: hidden;
+  border: 1px solid #f0f0f0;
+}
+.car_box_li_goods_li_con_img image {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.car_box_li_goods_li_con_main {
+  width: 450rpx;
+  float: left;
+  height: 210rpx;
+  box-sizing: border-box;
+  padding: 30rpx 20rpx 25rpx;
+}
+.car_box_li_goods_li_con_num {
+  float: right;
+  height: 100%;
+  line-height: 210rpx;  
+  font-size: 28rpx;
+  margin-right: 25rpx;
+}
+.car_box_li_goods_li_con_main_tit {
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 32rpx;
+  color: #1f1f1f;
+  margin-top: 10rpx;
+}
+.car_box_li_goods_li_con_main_style {
+  width: 100%;
+  line-height: 36rpx;
+  font-size: 24rpx;
+  margin-top: 10rpx;
+  color: #1f1f1f;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.car_box_li_goods_li_con_main_pri {
+  width: 100%;
+  margin-top: 10rpx;
+  font-size: 36rpx;
+  color: #f25c5c;
+}
+
+.order_msg {
+  line-height: 80rpx;
+  height: 80rpx;
+  text-align: right;
+  font-size: 26rpx;
+  color: #1f1f1f;
+  border-bottom: 1px solid #f0f0f0;
+}
+.order_msg text {
+  color: #f25c5c;
+}
+.order_btns {
+  height: 88rpx;
+  width: 100%;
+}
+.order_btns_li {
+  float: right;
+  font-size: 26rpx;
+  color: #1f1f1f;
+  height: 56rpx;
+  line-height: 56rpx;
+  border: 1px solid #cccccc;
+  border-radius: 6rpx;
+  padding: 0 20rpx;
+  margin-top: 16rpx;
+  margin-right: 15rpx;
+  width: 160rpx;
+  text-align: center;
+}

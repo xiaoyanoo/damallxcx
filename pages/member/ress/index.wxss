@@ -1,0 +1,84 @@
+/* pages/member/ress/index.wxss */
+.container {
+  padding-bottom: 88rpx;
+  background: #f0f0f0;
+}
+.ress_li {
+  width: 100%;
+  position: relative;
+  min-height: 240rpx;
+  box-sizing: border-box;
+  padding: 20rpx 25rpx 25rpx;
+  border-bottom: 20rpx solid #f0f0f0;
+  background: #ffffff;
+}
+.ress_li_tit {
+  line-height: 60rpx;
+  height: 60rpx;
+  font-size: 32rpx;
+  color: #1f1f1f;
+}
+.ress_li_msg {
+  margin-top: 5rpx;
+  line-height: 40rpx;
+  font-size: 28rpx;
+  color: #1f1f1f;
+}
+.ress_li_box {
+  height: 50rpx;
+  margin-top: 25rpx;
+}
+.ress_li_box_left {
+  float: left;
+  line-height: 50rpx;
+}
+.ress_li_box_left_icon {
+  width: 36rpx;
+  height: 36rpx;
+  float: left;
+  margin-top: 7rpx;
+  margin-left: 7rpx;
+}
+.ress_li_box_left_icon image {
+  float: left;
+  width: 100%;
+  height: 100%;
+}
+.ress_li_box_left_text {
+  font-size: 28rpx;
+  color: #1f1f1f;
+  height: 50rpx;
+  line-height: 50rpx;
+  margin-left: 15rpx;
+  float: left;
+}
+
+.ress_li_box_right {
+  float: right;
+  height: 50rpx;
+}
+.ress_li_box_right view {
+  float:left;
+  height: 48rpx;
+  line-height: 48rpx;
+  border: 1rpx solid #cccccc;
+  font-size: 24rpx;
+  color: #1f1f1f;
+  text-align: center;
+  width: 100rpx;
+  margin-left: 25rpx;
+  border-radius: 6rpx;
+}
+
+.address {
+  width:100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  font-size: 32rpx;
+  color: #fef9da;
+  background: #546571;
+}

@@ -1,0 +1,108 @@
+/* pages/member/turntable/index.wxss */
+.container {
+  background: #f0f0f0;
+}
+.turntable_top {
+  width: 100%;
+  height: 420rpx;
+}
+.turntable_top image {
+  float: left;
+  width: 100%;
+  height: 100%;
+}
+
+.turntable_box_li {
+  width: 100%;
+  height: 210rpx;
+  position: relative;
+  border-bottom :1px solid #f0f0f0;  
+  background: #ffffff;
+
+}
+.turntable_box_li_bg {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: 0;
+  height: 100%;
+}
+.turntable_box_li_bg image {
+  float: left;
+  width: 100%;
+  height: 100%;
+}
+.turntable_box_li_box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.turntable_box_li_box_img {
+  float: left;
+  width: 150rpx;
+  height: 150rpx;
+  margin-top: 30rpx;
+  margin-left: 25rpx;
+  border: 1px solid #f0eff4;
+  overflow: hidden;
+}
+.turntable_box_li_box_img image {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.turntable_box_li_box_con {
+  float: left;
+  width: 500rpx;
+  height: 100%;
+  margin-left: 25rpx;
+}
+.turntable_box_li_box_con_tit {
+  line-height: 40rpx;
+  font-size: 32rpx;
+  color: #1f1f1f;
+  font-weight: 600;
+  margin-top: 35rpx;
+}
+.turntable_box_li_box_con_msg {
+  line-height: 40rpx;
+  font-size: 24rpx;
+  color: #1f1f1f;
+  margin-top: 15rpx;
+}
+.turntable_box_li_time {
+  position: absolute;
+  bottom: 0;
+  line-height: 80rpx;
+  right: 25rpx;
+  font-size: 24rpx;
+  height: 80rpx;
+  color: #b3b3b3;  
+}
+
+.msg {
+  width: 100%;
+  border-top: 1px solid #f0f0f0;
+  background: #f0f0f0;
+}
+
+.msg_img {
+  width: 156rpx;
+  height: 156rpx;
+  margin: 100rpx auto 0;
+}
+.msg_img image {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.msg_text {
+  line-height: 60rpx;
+  font-size: 32rpx;
+  color: #b3b3b3;
+  width: 420rpx;
+  margin: 30rpx auto 0;
+  text-align: center;
+}

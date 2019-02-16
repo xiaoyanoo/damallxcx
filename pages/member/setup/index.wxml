@@ -1,0 +1,17 @@
+<!--pages/member/setup/index.wxml-->
+<view class="container">
+  <view class="setup">
+    <view class="setup_li" bindtap='linkRess'>
+      <view class="setup_li_name">收货地址</view>
+      <view class="setup_li_next">
+        <image src="../../../images/querendingdan_zhekouquan.png"></image>
+      </view>
+    </view>
+    <view class="setup_li" bindtap='linkBecome'>
+      <view class="setup_li_name">成为商家</view>
+      <view class="setup_li_next">
+        <image src="../../../images/querendingdan_zhekouquan.png"></image>
+      </view>
+    </view>
+  </view>
+</view>

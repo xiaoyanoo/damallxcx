@@ -1,0 +1,48 @@
+<!--pages/index/search/index.wxml-->
+<view class="container">
+  <view class="index_search" style="background:#fff">
+    <view class="search_btn " style='left:0;' bindtap='getGoods'>
+      <image src="../../../images/sousuo.png"></image>
+    </view>
+    <input  class="search_ipt" bindinput='setSearchText' type="text" placeholder='关键词搜索' placeholder-style='color: #787878;font-size: 24rpx;text-align: left;border-radius:10rpx;background:#ccc;padding:0 10rpx;'></input>
+    <text class="index_btn" bindtap='toSearch'>搜索</text>
+  </view>
+  <view class="search_tab">
+    <text bindtap='searchTab' data-type="1" class="search_tab_text {{type==1?'search_tab_cur':''}}">良品搜索</text>
+    <text bindtap='searchTab' data-type="2" class="search_tab_text {{type==2?'search_tab_cur':''}}">小店搜索</text>
+    <view class="lishi">
+      <view class="lishi_top">
+        <image class="lishi_top_img" src="../../../images/lishi.png"></image>
+        <text class="lishi_top_l">历史搜索</text>
+        <text class="lishi_top_r">清空</text>
+      </view>
+      <view class="clear"></view>
+      <view class="lishi_tag">
+        <text>桂圆干</text>
+        <text>桂圆肉</text>
+        <text>皇帝柑</text>
+        <text>阿胶糕</text>
+        <text>血橙</text>
+        <text>桂圆干</text>
+        <text>桂圆肉</text>
+      </view>
+      <view class="clear"></view>
+    </view>
+    <view class="shop_box clear " style='padding:0px;'>
+        <block wx:for="{{datas}}" wx:key="goodListKey">
+          <view class="shop_box_li" catchtap='linkDetails' data-id="{{item.goods_id}}">
+            <view class="shop_box_li_img">
+              <image wx:if="{{item.goods_img}}" src="{{jiekou + item.goods_img}}"></image>
+            </view>
+            <view class="shop_box_li_tit">{{item.goods_name}}</view>
+            <view class="shop_box_li_text">{{item.goods_remark}}</view>
+
+            <view class="shop_box_li_num">月销 {{item.goods_sale}}件</view>
+            <view class="shop_box_li_pri">¥ {{item.price}}</view>
+            
+          </view>
+        </block>
+      </view>
+  </view>
+  
+</view>

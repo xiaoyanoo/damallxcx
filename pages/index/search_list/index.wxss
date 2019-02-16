@@ -1,0 +1,8 @@
+/* pages/index/search/index.wxss */
+@import "../index.wxss";  
+page{
+  background: #fff;
+}
+.search_tab{
+  height: 150rpx;
+}

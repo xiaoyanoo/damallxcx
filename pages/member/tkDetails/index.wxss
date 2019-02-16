@@ -1,0 +1,355 @@
+/* pages/member/tkDetails/index.wxss */
+.container {
+  background: #f0f0f0;
+}
+.tk_box {
+  width: 100%;
+}
+.car_box_li_goods_li {
+  width: 100%;
+  height: 210rpx;
+  position: relative;
+  border-bottom: 1px solid #f0f0f0;
+  background: #ffffff;
+}
+.car_box_li_goods_li_icon {
+  width: 80rpx;
+  height: 80rpx;
+  margin-top: 65rpx;
+  float: left;
+}
+.car_box_li_goods_li_icon image {
+  width: 36rpx;
+  height: 36rpx;
+  margin-left: 22rpx;
+  margin-top: 22rpx;
+}
+.car_box_li_goods_li_con {
+  height: 210rpx;
+  box-sizing: border-box;
+  width: 670rpx;
+  float: left;
+}
+.car_box_li_goods_li_con_img {
+  float: left;
+  width: 140rpx;
+  height: 140rpx;
+  margin-top: 35rpx;
+  overflow: hidden;
+  border: 1px solid #f0f0f0;
+}
+.car_box_li_goods_li_con_img image {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.car_box_li_goods_li_con_main {
+  width: 520rpx;
+  float: left;
+  height: 210rpx;
+  box-sizing: border-box;
+  padding: 35rpx 20rpx;
+}
+.car_box_li_goods_li_con_main_tit {
+  width: 400rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 32rpx;
+  color: #1f1f1f;
+}
+.car_box_li_goods_li_con_main_style {
+  width: 400rpx;
+  line-height: 36rpx;
+  font-size: 24rpx;
+  margin-top: 10rpx;
+  color: #1f1f1f;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.car_box_li_goods_li_con_main_pri {
+  width: 400rpx;
+  margin-top: 10rpx;
+  font-size: 36rpx;
+  color: #f25c5c;
+}
+.car_box_li_goods_li_con_num {
+  position: absolute;
+  right: 0rpx;
+  top: 0;
+  height: 100%;
+  line-height: 210rpx;  
+  font-size: 28rpx;
+  margin-right: 25rpx;
+}
+.shopDetailsInfo {
+  padding: 25rpx;
+  background-color: #ffffff;
+}
+.shopDetailsInfo_pri {
+  line-height: 40rpx;
+  height: 40rpx;
+  font-size: 24rpx;
+  color: #1f1f1f;
+}
+.shopDetailsInfo_pri_pri {
+  color: #f25c5c;
+  font-size: 30rpx;
+}
+.shopDetailsInfo_pri view {
+  float: right;
+}
+
+.shopDetailsInfo_text {
+  text-align: right;
+  font-size: 22rpx;
+  line-height: 40rpx;
+  height: 40rpx;
+}
+.shopDetailsInfo_text text {
+  color: #f25c5c;
+  font-size: 22rpx;
+}
+
+.order_check {
+  width :100%;
+  border-bottom: 1px solid #f0f0f0;
+  border-top: 20rpx solid #f0f0f0;
+  line-height: 88rpx;
+  height: 88rpx;
+  background: #ffffff;
+}
+.order_check_text {
+  float: left;
+  font-size: 28rpx;
+  color: #1f1f1f;
+  line-height: 88rpx;
+  margin-left: 25rpx;
+}
+.order_check_msg {
+  float: right;
+  width: 500rpx;
+  text-align: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 28rpx;
+  color: #1f1f1f;
+  line-height: 88rpx;
+  margin-right: 0rpx;
+}
+.setup_li_next {
+  float: right;
+  height: 88rpx;
+  width: 88rpx;
+  margin-right: 0rpx;
+}
+.setup_li_next image{
+  width: 14rpx;
+  height: 26rpx;
+  margin-top: 31rpx;
+  margin-left: 40rpx;
+  float: left;
+}
+.order_check_img {
+  width :100%;
+  background: #ffffff;
+}
+.order_check_img .order_check_texts{
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 28rpx;
+  color: #1f1f1f;
+  line-height: 88rpx;
+  margin-left: 25rpx;
+  float: left
+}
+.order_check_img_li {
+  float: left;
+  width: 136rpx;
+  height: 126rpx;
+  margin-bottom: 25rpx;
+  margin-left: 12rpx;
+  background: #ffffff;
+}
+.order_check_img_li image {
+  float: left;
+  width: 100%;
+  height: 100%;
+}
+.tk_btn {
+  width: 700rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color: #fef9da;
+  border-radius: 6rpx;
+  background: #546571;
+  margin: 188rpx auto 88rpx;
+}
+.rank {
+  width: 100%;
+  height: 160rpx;
+  background: #ffffff;
+  border-top: 1px solid #f0f0f0;
+  padding: 25rpx 0;
+}
+.rank_ipt {
+  display: block;
+  width: 700rpx;
+  height: 160rpx;
+  margin: 0 auto;
+  line-height: 40rpx;
+  font-size: 28rpx;
+  color: #1f1f1f;
+}
+
+.showModel {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+
+}
+.hideModel {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+.showModel_box {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+}
+.showModel_box_list {
+  max-height: 400rpx;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.showModel_box_list_li {
+  height: 100rpx;
+  width: 100%;
+  line-height: 100rpx;
+  font-size: 28rpx;
+  color: #1f1f1f;
+  box-sizing: border-box;
+  padding-left: 25rpx;
+  border-bottom: 1px solid #f0f0f0;
+}
+.showModel_box_list_li:last-child {
+  border-bottom: 0;
+  
+}
+.showModel_top {
+  padding-left: 25rpx;
+  height: 120rpx;
+  line-height: 120rpx;
+  font-size: 32rpx;
+  color: #1f1f1f;
+  border-bottom :2px solid #f0f0f0;
+}
+.showModel_box_btn {
+  width: 100%;
+  border-top: 1px solid #f0f0f0;
+}
+.showModel_box_ipt {
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color: #fef9da;
+  background: #546471;
+}
+.car_box_li_goods {
+  padding-top: 1rpx;
+}
+.car_box_li_goods_li {
+  width: 100%;
+  height: 210rpx;
+  position: relative;
+  background-color: #ffffff;
+}
+.car_box_li_goods_li_con_main_tit {
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 32rpx;
+  color: #1f1f1f;
+  margin-top: 40rpx;
+}
+.car_box_li_goods_li_con_main_style {
+  width: 100%;
+  line-height: 36rpx;
+  font-size: 24rpx;
+  margin-top: 10rpx;
+  color: #1f1f1f;
+}
+.car_box_li_goods_li_con_main_pri {
+  width: 100%;
+  margin-top: 10rpx;
+  font-size: 36rpx;
+  color: #f25c5c;
+}
+.logistics_top_img {
+  float: left;
+  width: 150rpx;
+  height: 150rpx;
+  margin-top: 35rpx;
+  margin-left: 25rpx;
+  position: relative;
+}
+.logistics_top_img image{
+  width: 100%;
+  height: 100%;
+  float: left;
+  border-radius: 6rpx;
+}
+.logistics_top_img_msg {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: rgba(31,31,31,0.5);
+  font-size: 22rpx;
+  padding: 0 10rpx;
+  color: #ffffff;
+  line-height: 36rpx;
+  height: 36rpx;
+}
+.logistics_top_main {
+  width: 500rpx;
+  float: left;
+  height: 210rpx;
+  margin-left: 25rpx;
+}
+.logistics_top_main_top {
+  line-height: 40rpx;
+  font-size: 30rpx;
+  color :#1a1a1a;
+  margin-top: 30rpx;
+}
+.logistics_top_main_top text {
+  color: #ffa000;
+  font-size: 24rpx;
+}
+.logistics_top_main_text {
+  font-size: 26rpx;
+  line-height: 40rpx;
+  color: #7b7a7a;
+  margin-top: 10rpx;
+}

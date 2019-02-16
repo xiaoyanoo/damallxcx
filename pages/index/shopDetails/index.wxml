@@ -1,0 +1,184 @@
+<!--pages/index/shopDetails/index.wxml-->
+<view class="container">
+  <view class="shop_swiper">
+    <swiper current='{{current}}' bindchange="bindchange">
+      <block wx:for="{{datas.imgs}}" wx:key="keys">
+        <swiper-item>
+          <image wx:if="{{item.image_url}}" src="{{jiekou + item.image_url}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="shop_swiper_msg">{{datas.imgs.length > 0 ? current + 1 : 0}}/{{datas.imgs.length}}</view>
+  </view>
+
+  <view class="shop_info">
+    <view class="shop_info_left"> 
+      <view class="shop_info_name">{{datas.name}}</view>
+      <view class="shop_info_msg">{{datas.decription}}</view>
+    </view>
+    <view class="shop_info_right"> 
+      <image src="../../../images/shoucang.png"></image>
+      <text>收藏</text>
+    </view>
+    <view class="clear"></view>
+    <view class="shop_info_text">¥{{datas.price}}<view class="shop_store_num">已售出{{datas.month_sale}}份</view></view>
+    
+  </view>
+  <view class="shop_store clear">
+    <view class="shop_store_logo">
+      <image wx:if="{{datas.store_logo}}" src="{{jiekou + datas.store_logo}}"></image>
+    </view>
+    <view class="shop_store_name">
+      <view>{{datas.store_name}}</view>
+      <view class="shop_store_name_b">这里填店铺简介</view>
+    </view>
+    <view class="shop_look">查看店铺</view>
+  </view>
+
+ 
+  <view class="details_imgs clear {{is_report==0?'hidden':'shows'}}">
+    <block wx:for="{{datas.report}}" wx:key="keys">
+      <image wx:if="{{item.image_url}}" src="{{jiekou + item.image_url}}"></image>
+    </block>
+  </view>
+  <view class="shop_pj">
+    <view class="shop_style_tit">宝贝评论({{datas.eva_num}})</view>
+    <view class="shop_style_next" bindtap='linkpjList'>查看更多</view>
+
+  </view>
+  <view class="shop_pj_box">
+    <block wx:for="{{datas.evaluation}}" wx:key="keys" wx:for-item="evItem" wx:for-index="evalIndex">
+      <view class="shop_pj_box_li clear" data-id="{{evItem.com_id}}">
+        <view class="shop_pj_box_li_l">
+          <image wx:if="{{evItem.head_pic}}" src="{{jiekou + evItem.head_pic}}"></image>
+        </view>
+        <view class="shop_pj_box_li_r">
+          <view class="shop_pj_box_li_r_top clear">
+            <view class="shop_pj_box_li_r_top_name">{{evItem.nickname}}</view>
+            <view class="shop_pj_box_li_r_top_time">{{evItem.add_time}}</view>
+          </view>
+          <view class="shop_pj_box_li_r_top_xx clear">
+            <image wx:for="{{5}}" wx:key="xxKey" src="../../../images/shangpinxiangqing_pingfen.png"></image>
+          </view>
+          <view class="shop_pj_box_li_r_center">{{evItem.content}}</view>
+          <view class="shop_pj_box_li_r_imgs clear">
+            <block wx:for="{{evItem.img}}" wx:key="keysImg" wx:for-item="imgItem">
+              <image wx:if="{{imgItem}}" src="{{jiekou + imgItem}}"></image>
+            </block>
+          </view>
+
+          <view class="shop_pj_box_li_r_buttom clear">
+            <view wx:if="{{evItem.spec_key_name}}" class="shop_pj_box_li_r_buttom_style">{{evItem.spec_key_name}}</view>
+            <view class="shop_pj_box_li_r_buttom_icon" data-index="{{evalIndex}}" bindtap='showModel1' data-uid="{{evItem.user_id}}" data-com_id="{{evItem.com_id}}">
+              <image src="../../../images/shangpinxiangqing_pinglun.png"></image>
+            </view>
+          </view>
+          <view class="pj_box" wx:if="{{evItem.reply.length > 0}}">
+            <block wx:for="{{evItem.reply}}" wx:key="replyKey" wx:for-item="replyItem">
+              <view class="pj_box_li clear">
+                <view class="pj_box_li_msg">
+                  <view class="pj_box_li_name" wx:if="{{replyItem.user_id != user_id}}">{{replyItem.nickname}}</view>
+                  <text>回复：</text>
+                  <view class="pj_box_li_name">{{replyItem.reply_nickname}}</view>
+                  <text>{{replyItem.content}}</text>
+                </view>
+                <view class="pj_box_huifu" data-index="{{evalIndex}}" wx:if="{{replyItem.user_id != user_id}}" data-id="{{evItem.id}}" data-com_id="{{evItem.com_id}}" bindtap='showModel1' data-uid="{{evItem.user_id}}">回复</view>
+
+              </view>
+            </block>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class="shop_pj">
+    <view class="shop_style_tit">商品详情</view>
+  </view>
+  <view class="details_imgs clear">
+    <block wx:for="{{datas.detail}}" wx:key="keys">
+      <image wx:if="{{item.img}}" src="{{jiekou + item.img}}"></image>
+    </block>
+  </view>
+
+  <view class="bot_nav">
+    <view class="bot_nav_li">
+      <view>
+        <contact-button type="default-light" 
+  size="20">
+          <image src="../../../images/shangpinxiangqing_kefu.png"></image>
+        </contact-button>
+      </view>
+    </view>
+    <view class="bot_nav_li" bindtap='shoucang' data-status="{{datas.is_collect}}">
+      <view>
+        <image src="../../../images/{{datas.is_collect == 1 ? 'shangpinxiangqing_shoucang02' : 'shangpinxiangqing_shoucang01'}}.png"></image>
+      </view>
+    </view>
+    <view class="bot_nav_li" bindtap='linkCar'>
+      <view>
+        <image src="../../../images/shangpinxiangqing_gouwuche.png"></image>
+      </view>
+    </view>
+    <view class="bot_nav_addcar" data-index="1" bindtap='shopPayBox'>
+      加入购物车
+    </view>
+    <view class="bot_nav_pay" data-index="2" bindtap='shopPayBox'>
+      立即购买
+    </view>
+  </view>
+  <view class="model_msg {{none[0] == 0 ? 'none' : ''}}">
+    <view class="model_msg_hide" catchtap='hideModel'></view>
+    <view class="model_msg_main">
+      <view class="model_msg_main_tit">产品参数</view>
+      <view class="model_msg_main_box">
+
+        <block wx:if="{{datas.attr.length > 0}}">
+          <view class="model_msg_main_box_li clear" wx:for="{{datas.attr}}" wx:key="keys">
+            <view class="model_msg_main_box_li_l">{{item.attr_name}}</view>
+            <view class="model_msg_main_box_li_r">{{item.attr_value}}</view>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="msg">暂无参数</view>
+        </block>
+      </view>
+    </view>
+  </view>
+
+  <view class="model_style {{none[1] == 0 ? 'none' : ''}}">
+    <view class="model_msg_hide" catchtap='hideModel'></view>
+    <view class="model_style_main">
+      <view class="model_style_main_tit">
+        <view class="model_style_main_num">库存：{{stock}} 件</view>
+        <view class="model_style_main_pri">¥ {{price}}</view>
+      </view>
+      <view class="model_style_main_box">
+        <view class="model_style_main_box_style" wx:for="{{datas.spec}}" wx:key="specKey" wx:for-item="specItem" wx:for-index="specIndex">
+          <view class="model_style_main_box_style_top">{{specItem.name}}</view>
+          <view class="model_style_main_box_style_box clear">
+            <block wx:for="{{specItem.child}}" wx:key="childKey" wx:for-item="childItem" wx:for-index="childIndex">
+              <view bindtap='selectSpec' class="{{childItem.status == 1? 'active' : ''}}" data-indexs="{{specIndex}}" data-index="{{childIndex}}" data-id="{{childItem.child_value}}">{{childItem.child_name}}</view>
+            </block>
+          </view>
+        </view>
+        <view class="model_style_main_box_add">
+          <view class="model_style_main_box_add_text">购买数量：</view>
+          <view class="add_box">
+            <view class="add_box_del" bindtap='delNum'>-</view>
+            <input class="add_box_ipt" disabled='true' value="{{skuNum}}" type="number"></input>
+            <view class="add_box_add" bindtap='addNum'>+</view>
+          </view>
+        </view>
+      </view>
+      <view class="model_style_main_btn" bindtap='linkOrderPay'>确定</view>
+    </view>
+  </view>
+
+  <!--评论输入框-->
+  <view class="popup" wx:if="{{show}}" catchtap="hideModel1">
+      <view class="pinglun-input">
+        <input class="mr10" bindinput='getInfo' name="content" focus="true" placeholder="说点什么~~~" />
+        <button catchtap='sendInfo'>发送</button>
+      </view>
+  </view>
+</view>

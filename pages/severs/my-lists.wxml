@@ -1,0 +1,8 @@
+<import src="list_tpl.wxml" />
+<template is="list" data="{{data:data,show_comment:show_comment,comment_placeholder:comment_placeholder,config:config}}" />
+<!--没有更多了-->
+<view class="nothing tc linght flex mb10" hidden="{{hasMore}}">
+  <text class="sub line mr10"></text>
+  <text>没有更多了</text>
+  <text class="sub line ml10"></text>
+</view>

@@ -1,0 +1,35 @@
+<!--pages/index/list/index.wxml-->
+
+<view class="index_search" bindtap='linkSearch'>
+  <input class="index_search_ipt" disabled='true' type="text" placeholder='关键词搜索' placeholder-style='color: #787878;font-size: 24rpx;text-align: center;'></input>
+  <view class="index_search_btn">
+    <image src="../../../images/sousuo.png"></image>
+  </view>
+</view>
+<view class="container">
+  <!-- 左边分类 -->
+    <view class="list_left">
+    <block wx:for="{{getHomePageCat}}" wx:key="keys" wx:for-item="item">
+      <view class="goodsCat">
+        <view data-id="{{item.cat_id}}" bindtap='getGoodsCat_Two' class="list_left_li {{catId==item.cat_id?'active1':''}}">{{item.cat_name}}</view>
+        
+        <block wx:for="{{getHomePageCatList}}" wx:key="key" wx:for-item="getitem">
+        </block>
+      </view>
+      </block>
+    </view>
+    <!-- 右边分类 -->
+    <view class="list_right">
+      <view class="goodsList">
+        <block wx:for="{{getHomePageCatList}}" wx:key="k" wx:for-item="v">
+          <view class="goods" bindtap='togoodsDetails' data-goods_id="{{v.cat_id}}">
+            <view class="goodsImg">
+              <image src="../../../images/shangpin.png"/>
+              <view class="goodsName">{{v.cat_name}}</view>
+            </view>
+            <view class="clear"></view>
+          </view>
+          </block>
+      </view>
+    </view>
+</view>

@@ -1,0 +1,32 @@
+<!--正在加载-->
+<view class="loding linght tc mt10" wx:if="{{!isLoaded}}">
+    <text class="iconfont icon-jiazai mr10 f18"></text>
+    <text>正在加载</text>
+</view>
+<block wx:if="{{isLoaded}}">
+    <view class="user-info">
+        <view class="user-container">
+            <image src="{{headimgurl}}" class="avatar"></image>
+            <view class="nickname">{{nickname}} <text class="iconfont {{sex==1?'blue icon-male':'red icon-female'}}"></text></view>
+        </view>
+        <view class="user-row">
+            <view class="user-row-item">
+                <text class="title">发表数</text>
+                <text class="remark">{{info_count}}</text>
+            </view>
+            <view class="user-row-item">
+                <text class="title">总阅读量</text>
+                <text class="remark">{{total_click}}</text>
+            </view>
+            <view class="user-row-item">
+                <text class="title">总赞数</text>
+                <text class="remark">{{total_good}}</text>
+            </view>
+        </view>
+    </view>
+
+    <view>
+        <import src="list_tpl.wxml" />
+        <template is="list" data="{{data:data,styles:styles,show_comment:show_comment,comment_placeholder:comment_placeholder,config:config}}" />
+    </view>
+</block>

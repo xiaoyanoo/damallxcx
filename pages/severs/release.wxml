@@ -1,0 +1,9 @@
+<!--pages/severs/release/release.wxml-->
+<view class="fenlei tc">
+  <view class="flex" wx:for="{{data}}" wx:key="*this">
+    <view class="classify-list sub" wx:for="{{item}}" wx:key="*this" catchtap="onNavigateTap" data-url="write?title={{item.name}}&cid={{item.id}}" data-type="">
+      <image class="list-img mb5" src="{{item.ico}}" mode="aspectFill"></image>
+      <view class="lineText">{{item.name}}</view>
+    </view>
+  </view>
+</view>

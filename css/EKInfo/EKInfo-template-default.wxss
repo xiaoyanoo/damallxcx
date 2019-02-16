@@ -1,0 +1,24 @@
+/*没有更多了*/
+.nothing {width: 70%;margin-left: auto;margin-right: auto}
+.nothing .line {height: 1rpx;background: #ddd;margin-top: 20rpx;}
+
+/******* color ********/
+.search-box,.search-show,.fenlei,.msg-list,.paixu,.top, .content {background: #fff;}
+.classify,.pinglun-input {background: #f2f2f2;}
+
+.searchbtn::after {display: none;}
+.ad-text {background: rgba(0, 0, 0, 0.26);}
+/******* sever-list_tpl ********/
+.vip-top {background: #f35e3c;}
+.comment {background: #f8f8f8;}
+.popup {background: rgba(0, 0, 0, 0.5);}
+.btn-pay {background: #e64340; color: #f9f9f9;}
+
+/******* green ********/
+.green,.paixu .active {color: #F35150;}
+.paixu .active::after,.zan,.add-msg .add,button[type="primary"] {background: rgba(0, 0, 0, 0.6);}
+.pinglun-input input {border-bottom-color: #F35150;}
+.zan:active,button[type="primary"]:active {background: #0086ff;}
+.return .home {background: rgba(0, 154, 255, 0.3);}
+.pinglun-input button {background: rgba(0, 154, 255, 0.6);}
+

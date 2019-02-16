@@ -1,0 +1,31 @@
+<!--pages/member/logistics/index.wxml-->
+<view class="container">
+  <view class="logistics_top">
+    <view class="logistics_top_img">
+      <image src="{{datas.goods_img}}"></image>
+      <view class="logistics_top_img_msg">{{datas.num}}件商品</view>
+    </view>
+    <view class="logistics_top_main">
+      <view class="logistics_top_main_top">物流状态 <text>{{datas.status}}</text></view>
+      <view class="logistics_top_main_text">承运公司:{{datas.nikeName}}</view>
+      <view class="logistics_top_main_text">运单编号:{{datas.orderNumber}}</view>
+      <!-- <view class="logistics_top_main_text">官方电话:暂无</view> -->
+    </view>
+  </view>
+  <view class="logistics_box">
+    <view class="logistics_box_tit">物流跟踪</view>
+    <view class="logistics_box_list">
+      <block wx:for="{{datas.content}}" wx:key="keys">
+        <view class="logistics_box_list_li clear {{index == 0 ? 'active': ''}}">
+          <view class="logistics_box_list_li_con">
+            <view class="logistics_box_list_li_l_icon">
+              <view class="view"></view>
+            </view>
+            <view class="logistics_box_list_li_con_text">{{item.content}}</view>
+            <view class="logistics_box_list_li_con_time">{{item.time}}</view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

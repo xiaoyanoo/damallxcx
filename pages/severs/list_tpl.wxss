@@ -1,0 +1,120 @@
+/*发布信息列表*/
+.msg-list {
+    padding: 30rpx;
+    position: relative;
+}
+.b_red{background: red}
+.left-img {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+}
+
+.right-content {
+    word-break: break-all;
+}
+
+.classify {
+    padding: 8rpx 18rpx;
+    border-radius: 6rpx;
+}
+
+/*用户发表的图片*/
+
+.img-list {
+    width: 186rpx;
+    height: 186rpx;
+}
+
+.img-list:nth-child(3n+3) {
+    margin-right: 0;
+}
+
+/*重置点赞颜色*/
+
+.icon-appreciatefill::before {
+    color: inherit;
+}
+
+/*置顶*/
+
+.vip-top {
+    width: 100rpx;
+    padding: 5rpx 10rpx;
+    position: relative;
+    border-radius: 6rpx;
+}
+
+/* 联系 */
+
+.contant {
+    padding: 10rpx 20rpx;
+}
+
+/*文本内容*/
+
+.user-content {
+    font-size: 32rpx;
+    line-height: 1.3;
+}
+
+/*评论*/
+
+.comment {
+    padding: 16rpx;
+    line-height: 1.5;
+    color: #444;
+}
+
+.comment>view:nth-child(n+2) {
+    margin-top: 10rpx;
+}
+
+/*评论输入框*/
+
+.popup {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+}
+
+.pinglun-input {
+    width: 750rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    padding: 15rpx 30rpx;
+    position: fixed;
+    bottom: 0;
+}
+
+.pinglun-input input {
+    display: inline-block;
+    width: 580rpx;
+    height: 35px;
+    line-height: 35px;
+    border-bottom: 1px solid #09bb07;
+    padding: 0 30rpx;
+}
+
+.pinglun-input button {
+    display: inline-block;
+    width: 90rpx;
+    height: 30px;
+    line-height: 30px;
+    color: #fff;
+    padding: 0 10rpx;
+    font-size: 12px;
+}
+
+/**支付按钮*/
+
+.btn-pay {
+    padding: 10rpx 20rpx;
+    border-radius: 6rpx;
+}
+
+
+
+@import "/css/EKInfo/EKInfo-template-default.wxss";

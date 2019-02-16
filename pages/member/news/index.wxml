@@ -1,0 +1,15 @@
+<!--pages/member/news/index.wxml-->
+<view class="container">
+  <view class="news_box">
+    <view class="news_box_li" wx:for="{{datas}}" wx:key="keys">
+      <view class="news_box_li_tit">{{item.type}}</view>
+      <view class="news_box_li_msg">{{item.content}}</view>
+      <view class="news_box_li_con">
+        <view class="news_box_li_tit_del" data-id="{{item.message_id}}" bindtap='delMessage'>
+          <image src="../../../images/gouwuche_shanchu.png"></image>
+        </view>
+        <view class="news_box_li_tit_time">{{item.send_time}}</view>
+      </view>
+    </view>
+  </view>
+</view>

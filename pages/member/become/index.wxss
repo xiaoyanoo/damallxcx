@@ -1,0 +1,36 @@
+/* pages/member/become/index.wxss */
+Page {
+  background: #ffffff;
+  
+}
+.container {
+  background: #ffffff;
+}
+.become_top {
+  width: 100%;
+  height: 420rpx;
+}
+.become_top image {
+  float: left;
+  width: 100%;
+  height: 100%;
+}
+.become_main {
+  padding-top: 50rpx;
+}
+.become_main_tit {
+  line-height: 80rpx;
+  color: #1f1f1f;
+  font-size: 32rpx;
+  padding-left: 25rpx;
+}
+.become_main_msg {
+  line-height: 40rpx;
+  font-size: 28rpx;
+  padding-left: 25rpx;
+  color: #666666;
+}
+.become_main_msg text {
+  color: #f25c5c;
+  
+}

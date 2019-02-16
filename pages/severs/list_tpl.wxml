@@ -1,0 +1,75 @@
+<template name="list">
+  <view class="msg-list flex mt10" wx:for="{{data}}" wx:key catchtap="onNavigateTap" data-url="detail?id={{item.id}}" style="{{styles[item.cid].list_item}}">
+    <image class="left-img" src="{{item.headimgurl}}" catchtap="onNavigateTap" data-url="frd_info?uid={{item.uid}}" mode="aspectFill"></image>
+    <view class="sub right-content ml15">
+      <view class="flex blue">
+        <text class="sub">{{item.nickname}}</text>
+        <text class="red mr15" wx:if="{{item.status==0}}">正在审核</text>
+        <view>
+          <!-- <text class="f12 mr15 contant gridFour green transition-duration-150 active-bg" data-mobile="{{item.mobile}}" catchtap="onCallTap">联系Ta</text>
+          <text class="btn-pay f12 mr15 transition-duration-150 active-bg" wx:if="{{item.is_pay==1}}" data-doc-id="{{item.id}}" catchtap="onPayTap">支付</text>
+          <text class="classify f12" catchtap="onNavigateTap" data-url="lists?cid={{item.cid}}&title={{item.category_title}}">{{item.category_title}}</text> -->
+          <text class="vip-top f12 write ml5" wx:if="{{item.is_top>0}}">置顶</text>
+        </view>
+      </view>
+      <!--发布内容-->
+      <view class="user-content mt10">{{item.content}}</view>
+      <!--图片-->
+      <view class="content-img mt5" catchtap="onPreviewTap" data-urls="{{item.imgs}}">
+        <image class="img-list mt5 mr5" src="{{item}}" mode="aspectFill" wx:for="{{item.imgs}}" wx:key  wx:if="{{item}}" data-index="{{index}}"></image>
+      </view>
+      <!--位置-->
+      <view class="place flex mt10 grey f12">
+        <text class="sub blue">
+          <text class="iconfont icon-locationfill"></text> {{item.address}}</text>
+        <!-- <text wx:if="{{item.juli}}">{{item.juli}}</text> -->
+      </view>
+
+      <view class="grey flex mb10">
+        <!--时间-->
+        <view class="sub f12">
+          <text>{{item.create_time}}</text>
+        </view>
+        <!--评论点赞-->
+        <view class="f16 linght">
+          <text class="mr15" wx:if="{{config.show_read_count!=0}}">
+            <text class="mr5 iconfont icon-attentionfill"></text>
+            <text class="f14">{{item.click}}</text>
+          </text>
+          <text class="mr15"   catchtap="onShowCommentTap" data-doc-id="{{item.id}}" data-index="{{index}}" data-nickname="{{item.nickname}}" wx:if="{{config.show_comment!=0}}">
+            <text class="mr5 iconfont icon-commentfill"></text>
+            <text class="f14">{{item.comment}}</text>
+          </text>
+          <text class="mr15" catchtap="onGoodTap" data-index="{{index}}" data-id="{{item.id}}" wx:if="{{config.show_good!=0}}">
+            <text class="mr5 iconfont icon-appreciatefill {{item.is_good?'green':''}}"></text>
+            <text class="f14">{{item.good}}</text>
+          </text>
+        </view>
+      </view>
+      <!--评论内容-->
+      <view class="comment" wx:if="{{item.comment_list.length && config.show_comment!=0}}"  catchtap="onShowCommentTap" data-index="{{index}}">
+        <view wx:for="{{item.comment_list}}" wx:for-index="comment_index" wx:key>
+          <text class="blue" data-reply-id="{{item.id}}" data-uid="{{item.uid}}" data-comment-index="{{comment_index}}" data-nickname="{{item.nickname}}">{{item.nickname}}:</text>
+          <text>{{item.content}}</text>
+          <view class="ml10" wx:for="{{item.reply_list}}" wx:key>
+            <text class="blue" data-reply-id="{{item.reply_id}}" data-uid="{{item.uid}}" data-comment-index="{{comment_index}}" data-nickname="{{item.nickname}}">{{item.nickname}}:</text>
+            <text>回复</text>
+            <text class="blue" data-reply-id="{{item.reply_id}}" data-uid="{{item.reply_uid}}" data-comment-index="{{comment_index}}" data-nickname="{{item.reply_nickname}}">{{item.reply_nickname}}:</text>
+            <text>{{item.content}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!--评论输入框-->
+  <view class="popup" wx:if="{{show_comment}}" catchtap="onHideCommentTap">
+    <form report-submit="true" bindsubmit="onCommentSubmit">
+      <view class="pinglun-input" catchtap="onEmptyTap">
+        <input class="mr10" name="content" focus="true" placeholder="{{comment_placeholder}}" />
+        <button form-type="submit">发送</button>
+      </view>
+    </form>
+  </view>
+
+</template>

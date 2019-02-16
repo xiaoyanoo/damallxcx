@@ -1,0 +1,54 @@
+<!--pages/member/commissionMx/index.wxml-->
+<view class="container">
+  <view class="Tab">
+    <view class="thisTab {{Tab==0?'TabActive':''}}" data-id="0" bindtap='changeTab'>
+      未到账佣金
+    </view>
+    <view class="thisTab {{Tab==1?'TabActive':''}}" data-id="1" bindtap='changeTab'>
+      取消的佣金
+    </view>
+    <view class="thisTab {{Tab==2?'TabActive':''}}" data-id="2" bindtap='changeTab'>
+      已到账佣金
+    </view>
+    <view class="clear"></view>
+  </view>
+  <view class="commission">
+  <!-- 未到账佣金 -->
+  <view class="commission_main {{Tab==0?'':'none'}}">
+      <block wx:for="{{not_account}}" wx:key="keys">
+        <view class="commission_main_li clear">
+          <view class="commission_main_li_l">
+            <view class="commission_main_li_l_tit">分销金</view>
+            <view class="commission_main_li_l_time">{{item.pay_time}}</view>
+          </view>
+          <view class="commission_main_li_pri">{{item.commission}}</view>
+        </view>
+      </block> 
+    </view>
+  <!-- 取消的佣金 -->
+  <view class="commission_main {{Tab==1?'':'none'}}">
+      <block wx:for="{{CancelAccount}}" wx:key="keys">
+        <view class="commission_main_li clear">
+          <view class="commission_main_li_l">
+            <view class="commission_main_li_l_tit">分销金</view>
+            <view class="commission_main_li_l_time">{{item.pay_time}}</view>
+          </view>
+          <view class="commission_main_li_pri">{{item.commission}}</view>
+        </view>
+      </block> 
+    </view>
+  <!-- 已到账佣金 -->
+    <view class="commission_main {{Tab==2?'':'none'}}">
+      <block wx:for="{{datas}}" wx:key="keys">
+        <view class="commission_main_li clear">
+          <view class="commission_main_li_l">
+            <view class="commission_main_li_l_tit">{{item.desc}}</view>
+            <view class="commission_main_li_l_time">{{item.change_time}}</view>
+          </view>
+          <view class="commission_main_li_pri">{{item.user_money}}</view>
+        </view>
+      </block> 
+    </view>
+
+  </view>
+</view>

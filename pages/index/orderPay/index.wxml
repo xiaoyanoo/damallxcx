@@ -1,0 +1,146 @@
+<!--pages/index/orderPay/index.wxml-->
+<view class="container">
+  <view class="order_top">
+    <block wx:if="{{address_id}}">
+      <!--有地址样式  -->
+      <view class="order_top_true" bindtap='selectress'>
+        <view class="order_top_true_con">
+          <view class="order_top_true_con_top clear">
+            <view class="order_top_true_con_top_name">{{address.name}}</view>
+            <view class="order_top_true_con_top_text">{{address.mobile}}</view>
+            <block wx:if="{{address.is_default == 1}}">
+              <view class="order_top_true_con_top_nower">默认</view>
+            </block>
+          </view>
+          <view class="order_top_true_con_address clear">
+            <view class="address_icon">
+              <image src="../../../images/querendingdan_dizhi.png"></image>
+            </view>
+            <view class="address_text">{{address.region + address.ress}}</view>
+          </view>
+        </view>
+        <view class="order_top_true_text">
+          <image src="../../../images/zhengzhuangzizhen_pulldown.png"></image>
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+      <!--没有地址样式  -->
+      <view class="order_top_flase">
+        <view class="order_top_flase_msg">您还没有填写联系信息</view>
+        <view class="order_top_flase_btn" bindtap='addRess'>去添加</view>
+      </view>
+      <image class="order_top_icon" src="../../../images/querendingdan_dizhi02.png"></image>
+    </block>
+  </view>
+
+  <view class="goodDetails">
+    <view class="car_box_li_goods">
+      <block wx:for="{{datas.shop_goods}}" wx:for-item="shopItem1" wx:key="shopKey1" wx:for-index="shopIndex1">
+        <block wx:for="{{shopItem1.goods_list}}" wx:for-item="shopItem" wx:key="shopKey" wx:for-index="shopIndex">
+
+          <view class="car_box_li_goods_li">
+            <view class="car_box_li_goods_li_con">
+              <view class="car_box_li_goods_li_con_img">
+                <image wx:if="{{shopItem.goods_img}}" src="{{jiekou + shopItem.goods_img}}"></image>
+              </view>
+              <view class="car_box_li_goods_li_con_main">
+                <view class="car_box_li_goods_li_con_main_tit">{{shopItem.goods_name}}</view>
+                <view class="car_box_li_goods_li_con_main_style">{{shopItem.goods_attr}}</view>
+                <view class="car_box_li_goods_li_con_main_pri">¥{{shopItem.price}}</view>
+              </view>
+              <view class="car_box_li_goods_li_con_num">x{{shopItem.goods_num}}</view>
+            </view>
+          </view>
+
+        </block>
+        <picker bindchange="bindPickerChange" data-index="{{shopIndex1}}" range-key="name" value="{{index[shopIndex1]}}" range="{{shopItem1.distri_type}}">
+          <view class="addku_li">
+            <view class="addku_li_name">配送方式：</view>
+            <view class="addku_li_ipt">
+              <view class="addku_li_ipt">
+                <text>{{shopItem1.distri_type[index[shopIndex1]].name}}</text>
+              </view>
+            </view>
+            <view class="addku_li_next">
+              <image src="../../../images/querendingdan_zhekouquan.png"></image>
+            </view>
+          </view>
+        </picker>
+        
+        <view class="conts">
+            <view class="addku_li_name">备注：</view>
+            <textarea class="areas" placeholder='添加备注' minlength="{{min}}" maxlength="{{max}}" bindinput="textarea" data-index="{{shopIndex1}}"> 
+            </textarea>
+        </view>
+        <view class="shopDetailsInfo">
+          <view class="shopDetailsInfo_pri">
+            <view class="shopDetailsInfo_pri_pri">¥{{shopItem1.total_fee + shopping_price[shopIndex1]+'元'}}</view>
+            <view class="shopDetailsInfo_pri_text">共1件商品，共重{{shopItem1.total_weight}}kg 小计：</view>
+          </view>
+          <view class="shopDetailsInfo_text">
+            (含邮费：
+            <text>{{shopping_price[shopIndex1]}}</text>)
+          </view>
+        </view>
+
+      </block>
+    </view>
+
+
+    <block wx:if="{{datas.is_pre_sale == 0}}">
+        <view class="addku_li addku_list_top" bindtap='showModel'>
+          <view class="addku_li_name">折扣券： <block wx:if='{{datas.discount==[]||datas.discount==""||datas.discount==undefine}}'></block></view>
+          <view class="addku_li_ipt">
+            <view class="addku_li_ipt">
+              <text>{{youhuiquan_msg}}</text>
+            </view>
+          </view>
+          <view class="addku_li_next">
+            <image src="../../../images/querendingdan_zhekouquan.png"></image>
+          </view>
+      </view>
+    </block>
+    
+
+
+  </view>
+
+  <view class="bot_box">
+    <view class="bot_box_text">
+      <view class="bot_box_text_text">合计金额：</view>
+      <view class="bot_box_text_pricon">¥ </view>
+      <view class="bot_box_text_num">{{total_fee}}</view>
+    </view>
+    <block wx:if="{{orderSn}}">
+      <view class="bot_box_btn" bindtap='getWxPay'>继续支付</view>
+    </block>
+    <block wx:else>
+      <view class="bot_box_btn" bindtap='linkLuck'>提交订单</view>
+    </block>
+  </view>
+
+  <view class="auditcenter_model {{none == 0 ? 'none' : ''}}">
+    <view class="auditcenter_model_hide" bindtap='hideModel'></view>
+    <view class="auditcenter_model_box">
+      <view class="auditcenter_model_box_top">折扣券</view>
+      <view class="auditcenter_model_box_ul">
+        <block wx:for="{{datas.discount}}" wx:key="shopKyess">
+          <view class="auditcenter_model_box_ul_li clear">
+            <view class="auditcenter_model_box_ul_li_context">
+              <view class="auditcenter_model_box_ul_li_context_tit">{{item.name}} 折扣券
+                <text>（所有商品可用 预订商品除外）</text>
+              </view>
+              <view class="auditcenter_model_box_ul_li_context_bit">有效期：{{item.use_end_time}}</view>
+            </view>
+            <view class="auditcenter_model_box_ul_li_icon" data-acount="{{item.acount}}" data-msg="{{item.name}}" data-id="{{item.id}}" bindtap='giveYhuiquan'>
+              <image src="../../../images/querendingdan_zhekouquanshiyong.png"></image>
+            </view>
+          </view>
+        </block>
+
+      </view>
+      <view class="auditcenter_model_box_btn" bindtap='hideModel1'>取消使用</view>
+    </view>
+  </view>
+</view>

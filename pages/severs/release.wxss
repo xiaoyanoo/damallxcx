@@ -1,0 +1,7 @@
+/* pages/severs/release/release.wxss */
+
+.fenlei {padding: 20rpx 0;}
+.classify-list {padding: 20rpx 0;max-width: 25%;min-width: 25%;}
+.classify-list .list-img {display: inline-block;width: 90rpx;height: 90rpx;border-radius: 50%;}
+.classify-list:active {-webkit-filter: brightness(0.8);filter: brightness(0.8);}
+@import "/css/EKInfo/EKInfo-template-default.wxss";

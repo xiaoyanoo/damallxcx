@@ -1,0 +1,43 @@
+<!--pages/goods/index.wxml-->
+<view class="Container">
+  <view class="main">
+    <swiper current="{{currentTab}}" style="width:{{winWidth}}px;height: {{winHeight}}px;" class="swiper-box" duration="300" bindchange="bindChange">  
+    <!-- 全部 -->
+      <block wx:for="{{navList}}" wx:key="list" wx:for-index="listIndex">  
+        <swiper-item style="padding-top: 108rpx;">  
+          <scroll-view bindscrolltolower="bindDownLoad" data-index="{{listIndex}}" scroll-y="true" style="height:{{winHeight - 54}}px"> 
+            <view class="car_box_li_goods">
+              <block wx:for="{{datas[listIndex]}}" wx:for-item="shopItem" wx:key="shopKey" wx:for-index="shopIndex">
+                <view class="car_box_li_goods_li" catchtap="{{listIndex == 0 ? 'linkDetails' : 'linkDetails1'}}" data-id="{{shopItem.goods_id}}">
+                  <view class="car_box_li_goods_li_con">
+                    <view class="car_box_li_goods_li_con_img">
+                      <image wx:if="{{shopItem.original_img}}" src="{{jiekou + shopItem.original_img}}"></image>
+                    </view>
+                    <view class="car_box_li_goods_li_con_main">
+                      <view class="car_box_li_goods_li_con_main_tit">{{shopItem.goods_name}}</view>
+                      <!-- <view class="car_box_li_goods_li_con_main_style">{{}}</view> -->
+                      <view class="car_box_li_goods_li_con_main_msg">{{shopItem.goods_remark}}</view>
+                       <view class="car_box_li_goods_li_con_main_pri">¥{{shopItem.price}}</view> 
+                    </view>
+                    <!-- <view class="car_box_li_goods_li_con_num">x1</view> -->
+                    <view class="car_box_btn" catchtap='btnFsong' data-id="{{shopItem.collect_id}}">取消收藏</view>
+                  </view>
+                </view>
+              </block>
+            </view>
+          </scroll-view> 
+        </swiper-item> 
+      </block> 
+         <!-- 全部 -->   
+    </swiper> 
+  </view>
+  <view class="nav">
+    <scroll-view scroll-x="true" class="scrollbar_main" scroll-left="{{navScrollLeft}}" scroll-with-animation="{{true}}">
+      <view class="swiper-tab">  
+          <block wx:for="{{navList}}" wx:for-item="nav" wx:for-index="index" wx:key="item">
+          <view class="swiper-tab-list {{currentTab==index ? 'on' : ''}}" data-current="{{index}}" bindtap="swichNav">{{nav}}</view>  
+          </block>
+      </view> 
+    </scroll-view>
+  </view>
+</view>

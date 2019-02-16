@@ -1,0 +1,113 @@
+/* pages/index/shopList/index.wxss */
+.container {
+  background: #f0f0f0;
+  padding-top: 89rpx;
+}
+.shoplist_top {
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-bottom: 1rpx solid #f0f0f0;
+  background: #ffffff;
+}
+.shoplist_top_li {
+  float: left;
+  width: 33.33%;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  color: #b3b3b3;
+  font-size: 28rpx;
+}
+.shoplist_top .active {
+  color: #1f1f1f;
+}
+/*商品样式  */
+.shop_box {
+  background: #f0f0f0;
+  padding: 0 24rpx;
+  border-top: 1px solid #f0f0f0;
+  padding-bottom: 25rpx;
+}
+.shop_box_li {
+  float: left;
+  width: 340rpx;
+	height: 516rpx;
+	background-color: #ffffff;
+	border-radius: 6rpx;
+  margin-top: 25rpx;
+  margin-left: 22rpx;
+  position: relative;
+  box-shadow: 1px 1px 2px 0px #ccc;
+}
+.shop_box_li:nth-child(2n-1){
+  margin-left: 0rpx;
+}
+.shop_box_li_img {
+  width: 300rpx;
+  height: 300rpx;
+  margin-left: 20rpx; 
+  margin-top: 20rpx; 
+}
+.shop_box_li_img image{
+  width:100%;
+  height: 100%;
+  float: left;
+}
+.shop_box_li_tit {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10rpx 20rpx;
+  font-size: 28rpx;
+  color: 1f1f1f;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  line-height: 36rpx;
+}
+.shop_box_li_text {
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 3rpx 20rpx;
+  font-size: 24rpx;
+  line-height: 36rpx;
+	color: #1f1f1f;
+  
+}
+.shop_box_li_num {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 3rpx 20rpx;
+  font-size: 22rpx;
+  line-height: 36rpx;
+	color: #b3b3b3;
+}
+.shop_box_li_pri {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10rpx 20rpx 0;
+  font-size: 30rpx;
+  line-height: 36rpx;
+	color: #f25c5c;
+}
+.shop_box_li_btn {
+  width: 60rpx;
+  height: 60rpx;
+  position: absolute;
+  right: 5rpx;
+  bottom: 5rpx;
+}
+.shop_box_li_btn image {
+  width: 36rpx;
+  height: 36rpx;
+  float: left;
+  margin-top: 12rpx;
+  margin-left: 12rpx;
+  vertical-align: bottom;
+}

@@ -1,0 +1,82 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/member/commissionMx/index",
+    "pages/member/myReservation/index",
+    "pages/member/EditOrderAddress/index",
+    "pages/index/list/index",
+    "pages/member/index/index",
+    "pages/member/orderList/index",
+    "pages/member/myShoucang/index",
+    "pages/member/commissionPay/index",
+    "pages/member/commission/index",
+    "pages/member/referrals/index",
+    "pages/member/news/index",
+    "pages/member/conment/index",
+    "pages/member/turntable/index",
+    "pages/member/become/index",
+    "pages/member/address/index",
+    "pages/member/ress/index",
+    "pages/member/setup/index",
+    "pages/member/dioscount/index",
+    "pages/member/tkDetails/index",
+    "pages/member/orderDetails/index",
+    "pages/member/logistics/index",
+    "pages/member/logistics2/index",
+    "pages/member/goodComment/index",
+    "pages/member/member/index",
+    "pages/index/search/index",
+    "pages/index/search_list/index",
+    "pages/index/shopDetails/index",
+    "pages/index/shopDetails1/index",
+    "pages/index/shopList/index",
+    "pages/index/orderPay/index",
+    "pages/car/index",
+    "pages/index/pjList/index",
+    "pages/severs/index",
+    "pages/severs/jubao",
+    "pages/severs/lists",
+    "pages/severs/my-lists",
+    "pages/severs/release",
+    "pages/severs/write",
+    "pages/severs/detail",
+    "pages/severs/frd_info"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "农夫良品",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#566e3a",
+    "color": "#b3b3b3",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/shouye1.png",
+        "selectedIconPath": "images/shouye.png",
+        "text": "首页"    
+      },
+      {
+        "pagePath": "pages/index/list/index",
+        "iconPath": "images/feilei1.png",
+        "selectedIconPath": "images/feilei.png",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/severs/index",
+        "iconPath": "images/gouwuche1.png",
+        "selectedIconPath": "images/gouwuche.png",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/member/index/index",
+        "iconPath": "images/wode1.png",
+        "selectedIconPath": "images/wode.png",
+        "text": "我的"
+      }
+    ]
+  }
+}

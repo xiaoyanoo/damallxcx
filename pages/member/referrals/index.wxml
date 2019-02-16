@@ -1,0 +1,45 @@
+<!--pages/member/referrals/index.wxml-->
+<view class="container">
+  <view class="referrals_top">
+    <image class="referrals_top_img" src="../../../images/595070691848201783.png"></image>
+    <view class="referrals_top_box">
+      <view class="referrals_top_box_tit">我的下线:（人）</view>
+      <view class="referrals_top_box_num">{{nums}}</view>
+      <view class="referrals_top_box_msg">朋友助力：<text>{{allnum}}人</text></view>
+    </view>
+  </view>
+
+  <view class="referrals_canvas">
+    <view class="referrals_canvas_box">
+      <canvas canvas-id="mypie" style="width:300rpx;height:300rpx;"></canvas> 
+    </view>
+    <view class="referrals_canvas_msg">
+      <view class="referrals_canvas_msg_t">
+        <view class="referrals_canvas_msg_t_icon"></view>
+        <view class="referrals_canvas_msg_t_text">我的下线: {{nums}}人</view>
+      </view>
+      <view class="referrals_canvas_msg_t">
+        <view class="referrals_canvas_msg_t_icons"></view>
+        <view class="referrals_canvas_msg_t_text">朋友助力: {{allnum}}人</view>
+      </view>
+    </view>
+  </view>
+   
+  <view class="referrals_list">
+    <view class="referrals_list_top">下线成员</view>
+    <view class="referrals_list_box">
+      <view class="referrals_list_box_li" wx:for="{{datas}}" wx:key="keys">
+        <view class="referrals_list_box_li_img">
+          <image wx:if="{{item.head_pic}}" src="{{jiekou +item.head_pic }}"></image>
+        </view>
+        <view class="referrals_list_box_li_main">
+          <view class="referrals_list_box_li_main_t">
+            <view class="referrals_list_box_li_main_t_name">{{item.nickname}}</view>
+            <view class="referrals_list_box_li_main_t_vip">{{item.level}}</view>
+          </view>
+          <view class="referrals_list_box_li_main_time">加入时间：{{item.add_time}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,90 @@
+<!--pages/member/member/index.wxml-->
+<view class="container">
+  <view class="mumber">
+    <image class="mumber_pg" src="../../../images/huiyuan_background.png"></image>
+    <view class="mumber_box">
+      <view class="mumber_box_img">
+        <block wx:if="{{vip == 0}}">
+          <image src="../../../images/huiyuan_putong.png"></image>
+        </block>
+        <block wx:if="{{vip == 1}}">
+          <image src="../../../images/huiyuan_baiyin.png"></image>
+        </block>
+        <block wx:if="{{vip == 2}}">
+          <image src="../../../images/huiyuan_huangjin.png"></image>
+        </block>
+        <block wx:if="{{vip == 3}}">
+          <image src="../../../images/huiyuandengij_04.png"></image>
+        </block>
+        <block wx:if="{{vip == 4}}">
+          <image src="../../../images/huiyuandengij_05.png"></image>
+        </block>
+      </view>
+      <view class="mumber_box_grade">
+        当前等级：{{datas.cu_level}}
+        <view class="mumber_box_grade_msg" bindtap='linkReferrals'>我的邀请</view>
+      </view>
+      <view class="experience clear">
+        <view class="experience_text">经验值：</view>
+        <view class="experience_box">
+          <view style="width: {{(datas.next_exp -datas.need_exp)*100/datas.next_exp }}%"></view>
+        </view>
+        <view class="experience_msg">{{datas.next_exp -datas.need_exp }}/{{datas.next_exp}}</view>
+      </view>
+
+      <view class="experience_num">
+        (当前已邀请{{datas.next_exp -datas.need_exp }}人，再邀请{{datas.need_exp}}名用户加入凯粮购，即可升级为
+        <text>{{datas.next_level}}</text>)
+      </view>
+
+      <view class="icons clear">
+        <block wx:for="{{datas.vip}}" wx:key="keys">
+          <view class="icons_box">
+            <view class="icons_box_img">
+              <view class="icons_box_line" wx:if="{{index != 4}}"></view>
+              <block wx:if="{{index == 0}}">
+                <image src="../../../images/huiyuan_putong.png"></image>
+              </block>
+              <block wx:if="{{index == 1}}">
+                <image src="../../../images/{{item.status == 1 ? 'huiyuan_baiyin' : 'huiyuandengji_02'}}.png"></image>
+              </block>
+              <block wx:if="{{index == 2}}">
+                <image src="../../../images/{{item.status == 1 ? 'huiyuan_huangjin' : 'huiyuandengij_03'}}.png"></image>
+              </block>
+              <block wx:if="{{index == 3}}">
+                <image src="../../../images/{{item.status == 1 ? 'huiyuandengij_04' : 'huiyuan_bojin'}}.png"></image>
+              </block>
+              <block wx:if="{{index == 4}}">
+                <image src="../../../images/{{item.status == 1 ? 'huiyuandengij_05' : 'huiyuan_zhuanshi'}}.png"></image>
+              </block>
+            </view>
+            <view class="icons_box_text">{{item.name}}</view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+
+  <view class="member_list">
+    <view class="member_list_li">
+      <view class="member_list_li_tit">当前等级会员福利：</view>
+      <view class="member_list_li_con">当前会员订单佣金额：
+        <text>{{datas.vip[vip].rate}}</text>
+      </view>
+      <view class="member_list_li_msg">会员等级更高，福利越多哦</view>
+    </view>
+    <block wx:if="{{vip < 4}}">
+      <view class="member_list_li">
+        <view class="member_list_li_tit">下一级等级会员福利：</view>
+        <view class="member_list_li_con">下级会员订单佣金额：
+          <text>{{datas.vip[vip + 1].rate}}</text>
+        </view>
+        <view class="member_list_li_msg">会员等级更高，福利越多哦~~~</view>
+      </view>
+    </block>
+<view class="member_list_li">
+      <view class="member_list_li_tit">分享介绍：</view>
+      <view class="member_list_li_msg">分享后，朋友购买可以获得会员等级相应的佣金提成2、分享方式有：1、直接分享商品页面2、分享商城首页3、分享轮盘游戏4、在凯粮公众号制作属于自己的二维码海报后，分享二维码海报</view>
+    </view>
+  </view>
+</view>

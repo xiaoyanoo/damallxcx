@@ -1,0 +1,165 @@
+/* pages/member/index/index.wxss */
+.container{
+  width:100%;
+  height: 100%;
+  color:#202020;
+  background: #f0f0f0;
+}
+.my_top {
+  width: 100%;
+  height: 300rpx;
+  position: relative;
+  background: #546571;
+  border-top: 1px solid #546571;
+}
+.my_top_box {
+  width: 700rpx;
+  margin: 30rpx auto 0;
+}
+.my_top_box_pic {
+  float: left;
+  width: 140rpx;
+  height: 140rpx;
+  position: relative;
+}
+.my_top_box_pic_top {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+}
+.my_top_box_pic_icon {
+  width: 32rpx;
+  height: 32rpx;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0rpx;
+  right: 0rpx;
+}
+.my_top_box_name {
+  float: left;
+}
+.my_top_box_setup {
+  position: absolute;
+  width: 80rpx;
+  height: 80rpx;
+  right: 30rpx;
+  top: 60rpx;
+}
+.my_top_box_setup image {
+  width: 36rpx;
+  height: 36rpx;
+  float: left;
+  margin-left: 23rpx;
+  margin-top: 23rpx;
+}
+.my_top_box_name {
+  float: left;
+  width: 430rpx;
+  padding-left: 10rpx;
+  height: 140rpx;
+  margin-left: 20rpx;
+}
+.my_top_box_name_nickName {
+  line-height: 60rpx;
+  margin-top: 40rpx;
+  font-size: 36rpx;
+  color: #fef9da;
+}
+.my_top_box_name_msg {
+  line-height: 60rpx;
+  font-size: 26rpx;
+  color: #fff334;
+}
+
+.my_order {
+  width: 703rpx;
+  height: 160rpx;
+  position: absolute;
+  left: 25rpx;
+  bottom: -100rpx;
+  background: #ffffff;
+  border-radius: 6rpx;
+  border-bottom: 8rpx solid #546571;
+  box-shadow: 0 2rpx 5rpx 2rpx #ccc;
+  padding: 0 25rpx;
+}
+.my_order_box {
+  width: 20%;
+  height: 100%;
+  float: left;
+}
+.my_order_box_img {
+  width: 52rpx;
+  height: 95rpx;
+  margin: 0 auto;
+  padding-top: 28rpx;
+  padding-bottom: 15rpx;
+}
+.my_choujiang
+{
+  position: absolute;
+  width: 180rpx;
+  height: 80rpx;
+  right:-24rpx;
+top:133rpx;
+
+  color: #ffffff;
+
+}
+.my_order_box_img image {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.my_order_box_text {
+  font-size: 24rpx;
+  width: 100%;
+  text-align: center;
+  line-height: 48rpx;
+  color: #1f1f1f;
+}
+.my_orderList {
+  width: 700rpx;
+  height: 400rpx;
+  margin: 200rpx auto 0;
+  background: #ffffff;
+  border-radius: 6rpx;
+  border-bottom: 8rpx solid #546571;
+  box-shadow: 0 2rpx 5rpx 2rpx #ccc;
+  padding: 0 25rpx;
+  box-sizing: border-box;
+}
+.my_orderList_box {
+  width: 25%;
+  padding-top: 1rpx;
+  float: left;
+  height: 50%;
+}
+.my_orderList_box_img {
+  width: 54rpx;
+  height: 54rpx;
+  margin: 50rpx auto 10rpx;
+}
+.my_orderList_box_img image {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.my_orderList_box_text {
+  width: 100%;
+  line-height: 50rpx;
+  height: 50rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #1f1f1f;
+}
+.userLogin {
+  width: 200rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin-left: 50rpx;
+  margin-top: 50rpx;
+  font-size: 28rpx;
+  color:#546571;
+  padding: 0;
+}

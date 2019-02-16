@@ -1,0 +1,49 @@
+<form bindsubmit="onPushSubmit" report-submit="true">
+  <view class="">
+    <textarea placeholder="请输入要发布的内容" name="content" maxlength="6144" />
+  </view>
+
+  <!--图片-->
+  <view class="img mt10">
+    <image class="mr5 mb5" src="{{host_url}}{{item}}" mode="aspectFill" wx:for="{{pictures}}" wx:key="*this" data-index="{{index}}" catchlongtap="onDeleteImgTap" catchtap="onPreviewTap"></image>
+    <text class="add-img tc grey iconfont icon-add" catchtap="onOpenPictureTap" wx:if="{{pictures.length<6}}"></text>
+  </view>
+  <view class="ml10 mr10 f12 grey">温馨小提示：长按可以删除图片哦~</view>
+
+  <view class="massage mt10">
+    <view class="flex green list gridXb" catchtap="onOpenMapTap">
+      <input type="text" name="address" hidden="true" value="{{address}}" />
+      <input type="text" name="latitude" hidden="true" value="{{latitude}}" />
+      <input type="text" name="longitude" hidden="true" value="{{longitude}}" />
+      <text class="mr5 grey iconfont icon-locationfill"></text>
+      <text class="sub arrowR">{{address?address:'地址'}}</text>
+    </view>
+
+    <!--地址-->
+    <!-- <view class="flex list">
+      <text class="mr5 grey iconfont icon-peoplefill"></text>
+      <input type="number" class="sub" name="mobile" placeholder="请输入您的电话号码" value="{{mobile}}" />
+    </view> -->
+  </view>
+  <!-- <view class="massage mt10" hidden="{{!config || config.show_top==0}}">
+    <view class="list">
+      <text class="sub">我要置顶</text>
+      <switch class="fr" type="switch" bindchange="onIsTopChange" />
+      <input hidden="true" name="is_top" value="{{is_top}}" />
+    </view>
+    <view class="list flex gridXt" hidden="{{!is_top}}">
+      <text class="sub">选择置顶天数</text>
+      <picker class="grey" bindchange="onTopDayChange" mode="selector" range="{{config.top_rule}}" range-key="day">{{top_day}} 天</picker>
+      <input hidden="true" name="top_day" value="{{top_day}}" />
+    </view>
+    <view class="list flex gridXt" hidden="{{!is_top}}">
+      <text class="sub">价格</text>
+      <text class="red">￥{{top_amount}}</text>
+    </view>
+  </view> -->
+  <view class="m20 ">
+    <!-- <view class="mb5 grey tr" wx:if="{{cate.amount>0}}">此分类发帖
+      <text class="red">{{cate.amount}}元</text>/条</view> -->
+    <button class="b_red"  type="primary" hover-class="none" form-type="submit" >立即发布</button>
+  </view>
+</form>

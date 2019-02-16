@@ -1,0 +1,45 @@
+<!--pages/member/address/index.wxml-->
+<view class="container">
+  <view class="address_box">
+    <view class="addku_li">
+      <view class="addku_li_name">联系人姓名：</view>
+      <view class="addku_li_ipt">
+        <view class="addku_li_ipt">
+          <input placeholder='请填写联系人姓名' bindinput='setName' value="{{name}}" type='text'></input>
+        </view>
+      </view>
+    </view>
+    <view class="addku_li">
+      <view class="addku_li_name">联系人电话：</view>
+      <view class="addku_li_ipt">
+        <view class="addku_li_ipt">
+          <input placeholder='请填写联系人电话' bindinput='setPhone' value="{{mobile}}" type='text'></input>
+        </view>
+      </view>
+    </view>
+    <picker bindchange="bindRegionChange" custom-item="{{customItem}}" value="{{region}}" mode="region">
+      <view class="addku_li">
+        <view class="addku_li_name">选择地区：</view>
+        <view class="addku_li_ipt">
+          <view class="addku_li_ipt">
+            <input placeholder='请选择' value="{{region}}" disabled='true' type='text'></input>
+          </view>
+        </view>
+        <view class="addku_li_next">
+          <image src="../../../images/querendingdan_zhekouquan.png"></image>
+        </view>
+      </view>
+    </picker>
+
+    <view class="addku_li">
+      <view class="addku_li_name">详细地址：</view>
+      <view class="addku_li_ipt">
+        <view class="addku_li_ipt">
+          <input placeholder='请填写详细地址' bindinput='setRess' value="{{ress}}" type='text'></input>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="address" bindtap='saveRess'>保存</view>
+</view>

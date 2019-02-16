@@ -1,0 +1,48 @@
+<!--pages/index/search/index.wxml-->
+<view class="container">
+  
+  <view class="search_tab">
+      <view class="shop_top">
+        <image class="shop_top_img" src="../../../images/bolangxian.png"></image>
+        <text>{{type==1?'良品搜索':'小店搜索'}}</text>
+        <image class="shop_top_img"  src="../../../images/bolangxian.png"></image>
+      </view>
+      <view class="shop_box clear " style='padding:0px;'>
+        
+        <view class="shop_box_li" catchtap='linkDetails' data-id="{{item.goods_id}}">
+          <view class="shop_box_li_img">
+            <image src="../../../images/shangpin.png"></image>
+          </view>
+          <view class="shop_box_li_r">
+            <view class="shop_box_li_tit">皇帝柑</view>
+            <view class="shop_box_li_text">皇帝柑皇帝柑皇帝柑皇帝柑皇帝柑皇帝柑皇帝柑皇帝柑</view>
+            <view class="shop_box_li_num">110人已购买</view>
+            <view class="shop_box_li_pri">¥ 99.00<text class="old_price">￥88.00</text></view>
+          </view>
+        </view>
+        <view class="shop_box_li" catchtap='linkDetails' data-id="{{item.goods_id}}">
+          <view class="shop_box_li_img">
+            <image src="../../../images/shangpin.png"></image>
+          </view>
+          <view class="shop_box_li_r">
+            <view class="shop_box_li_tit">皇帝柑</view>
+            <view class="shop_box_li_text">皇帝柑皇帝柑皇帝柑皇帝柑皇帝柑皇帝柑皇帝柑皇帝柑</view>
+            <view class="shop_box_li_num">110人已购买</view>
+            <view class="shop_box_li_pri">¥ 99.00<text class="old_price">￥88.00</text></view>
+          </view>
+        </view>
+        <view class="shop_box_li" catchtap='linkDetails' data-id="{{item.goods_id}}">
+          <view class="shop_box_li_img">
+            <image src="../../../images/shangpin.png"></image>
+          </view>
+          <view class="shop_box_li_r">
+            <view class="shop_box_li_tit">皇帝柑</view>
+            <view class="shop_box_li_text">皇帝柑皇帝柑皇帝柑皇帝柑皇帝柑皇帝柑皇帝柑皇帝柑</view>
+            <view class="shop_box_li_num">110人已购买</view>
+            <view class="shop_box_li_pri">¥ 99.00<text class="old_price">￥88.00</text></view>
+          </view>
+        </view>
+      </view>
+  </view>
+  
+</view>

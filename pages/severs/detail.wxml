@@ -1,0 +1,107 @@
+<!--pages/severs/detail/detail.wxml-->
+<view class="top gridXb">
+    <view class="flex">
+        <!--头像-->
+        <image class="user-img" src="{{user.headimgurl}}" catchtap="onNavigateTap" data-url="frd_info?uid={{uid}}" mode="aspectFill"></image>
+        <view class="sub ml10">
+            <!--用户信息-->
+            <view class="user-msg flex">
+                <view class="sub blue">{{user.nickname}}</view>
+                <view class="grey f12">{{create_time}}</view>
+            </view>
+        </view>
+    </view>
+    <!--地址-->
+    <view class="flex blue mt10">
+        <text class="mr5 iconfont icon-locationfill"></text>
+        <view class="f14 sub lineText" catchtap="onOpenMapTap">{{address}}</view>
+        <!-- <view class="grey ml10">{{distance?distance:'离您0米'}}</view> -->
+    </view>
+</view>
+
+<view class="content f16" catchtap="onPreviewTap" data-urls="{{imgs}}">
+    <rich-text nodes="{{content}}" wx:if="{{richText}}" style="{{style}}" />
+    <text wx:else>{{content}}</text>
+    <image class="artic-img mt10" src="{{item}}" mode="widthFix" wx:for="{{imgs}}" wx:if="{{item}}" wx:key data-index="{{index}}"></image>
+    <view class="grey flex mt10" style="line-height:60rpx;">
+        <!--评论点赞-->
+        <view class="f16 linght sub flex">
+            <view class="mr15" wx:if="{{config.show_read_count!=0}}">
+                <text class="iconfont icon-attentionfill"></text>
+                <text>{{click}}</text>
+            </view>
+            <view class="mr15" catchtap="onShowCommentTap" data-doc-id="{{id}}" data-nickname="{{user.nickname}}" wx:if="{{config.show_comment!=0}}">
+                <text class="iconfont icon-commentfill"></text>
+                <text>{{comment}}</text>
+                
+            </view>
+            <view class="{{is_good?'green':''}}" catchtap="onGoodTap" data-index="" data-id="{{id}}" wx:if="{{config.show_good!=0}}">
+                <text class="iconfont icon-appreciatefill {{is_good?'green':''}}"></text>
+                <text>{{good}}</text>
+            </view>
+            <view data-docid="{{doc_id}}" class="jubao" catchtap="jubao">举报</view>
+        </view>
+        <!--更多-->
+        <view>
+            <!-- <view class="aside-more" catchtap="onToggleShowActionMenuTap">
+                <text class="iconfont icon-more"></text>
+            </view> -->
+            <view class="aside-more-content f12 transition-duration-500" hidden="{{!isShowActionMenu}}">
+                <text wx:if="{{is_admin || currentUid==uid}}" catchtap="onDeleteTap">删除</text>
+                <text wx:if="{{is_admin && status==0}}" catchtap="onCheckTap">审核</text>
+                <text wx:if="{{is_admin && currentUid!=uid}}" catchtap="onPullBlackTap">拉黑</text>
+                <text wx:if="{{is_admin}}" catchtap="{{is_top>0?'cannelTopTap':'onShowTopTap'}}">{{is_top!=0?'取消置顶':'置顶'}}</text>
+                <!-- <text catchtap="onNavigateTap" data-url="jubao?id={{id}}">举报</text> -->
+            </view>
+        </view>
+    </view>
+    <!--评论内容-->
+    <view class="comment f14 mt10" wx:if="{{data.length && config.show_comment!=0}}" >
+        <view wx:for="{{data}}" wx:key catchlongtap="onShowDeleteCommentTap" data-reply-id="{{item.id}}" data-index="{{index}}" data-uid="{{item.uid}}" data-show="{{currentUid==item.uid||currentUid==uid?1:0||is_admin}}" data-doc-id="{{id}}" data-nickname="{{item.nickname}}" catchtap="onShowCommentTap">
+            <text class="blue" data-reply-id="{{item.id}}" data-uid="{{item.uid}}" data-index="{{index}}" data-nickname="{{item.nickname}}">{{item.nickname}}:</text>
+            <text>{{item.content}}</text>
+            <view class="ml10" wx:for="{{item.reply_list}}" wx:for-index="replyIndex" wx:key data-id="{{item.id}}" catchlongtap="onShowDeleteCommentTap" data-uid="{{item.uid}}" data-show="{{currentUid==item.uid||currentUid==uid?1:0||is_admin}}" data-index="{{index}}"
+                data-reply-index="{{replyIndex}}">
+                <text class="blue" data-reply-id="{{item.reply_id}}" data-uid="{{item.uid}}" data-index="{{index}}" data-nickname="{{item.nickname}}">{{item.nickname}}:</text>
+                <text>回复</text>
+                <text class="blue" data-reply-id="{{item.reply_id}}" data-uid="{{item.reply_uid}}" data-index="{{index}}" data-nickname="{{item.reply_nickname}}">{{item.reply_nickname}}:</text>
+                <text>{{item.content}}</text>
+            </view>
+        </view>
+    </view>
+</view>
+
+<!--评论输入框-->
+<view class="popup" wx:if="{{show_comment}}" catchtap="onHideCommentTap">
+    <form report-submit="true" bindsubmit="onCommentSubmit">
+        <view class="pinglun-input" catchtap="onEmptyTap">
+            <input class="mr10" name="content" focus="true" placeholder="{{comment_placeholder}}" />
+            <button form-type="submit">发送</button>
+        </view>
+    </form>
+</view>
+<!--置顶弹出层-->
+<view class="popup" hidden="{{!isShowTop}}">
+    <view class="zhiding-choose mid">
+        <view class="f16 tc">选择置顶时间</view>
+        <view class="mt15 tc grey">
+            <picker mode="selector" range="{{['永久',1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]}}" bindchange="onTopDayChange">{{top_day==0?'永久':top_day+'天'}}</picker>
+        </view>
+        <view class="flex tc mt20 zhiding-btn">
+            <view class="sub green" catchtap="onToggleTopTap">确定</view>
+            <view class="sub" catchtap="onHideTopTap">取消</view>
+        </view>
+    </view>
+</view>
+
+<!-- 联系ta
+<view class="contact-box">
+    <button class="contact-user f16" type="primary" catchtap="onCallTap" disabled="{{mobile==''}}">联系Ta</button>
+</view>
+<!--左侧按钮-->
+<!-- <view class="right-btn left-btn tc write"> -->
+  <!--生成二维码-->
+  <!-- <view class="little-btn mb5" catchtap="getCode">
+    <text style="font-size:15px" class="iconfont iconfont icon-erweima1 fff"></text>
+  </view>
+</view> -->
