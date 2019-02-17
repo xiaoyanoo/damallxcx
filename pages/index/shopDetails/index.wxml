@@ -16,7 +16,7 @@
       <view class="shop_info_name">{{datas.name}}</view>
       <view class="shop_info_msg">{{datas.decription}}</view>
     </view>
-    <view class="shop_info_right"> 
+    <view class="shop_info_right"  bindtap='shoucang' data-status="{{datas.is_collect}}"> 
       <image src="../../../images/shoucang.png"></image>
       <text>收藏</text>
     </view>
@@ -44,10 +44,11 @@
   <view class="shop_pj">
     <view class="shop_style_tit">宝贝评论({{datas.eva_num}})</view>
     <view class="shop_style_next" bindtap='linkpjList'>查看更多</view>
-
+    
   </view>
+  
   <view class="shop_pj_box">
-    <block wx:for="{{datas.evaluation}}" wx:key="keys" wx:for-item="evItem" wx:for-index="evalIndex">
+    <block wx:for="{{datas.new_eva}}" wx:key="keys" wx:for-item="evItem" wx:for-index="evalIndex">
       <view class="shop_pj_box_li clear" data-id="{{evItem.com_id}}">
         <view class="shop_pj_box_li_l">
           <image wx:if="{{evItem.head_pic}}" src="{{jiekou + evItem.head_pic}}"></image>
@@ -58,7 +59,7 @@
             <view class="shop_pj_box_li_r_top_time">{{evItem.add_time}}</view>
           </view>
           <view class="shop_pj_box_li_r_top_xx clear">
-            <image wx:for="{{5}}" wx:key="xxKey" src="../../../images/shangpinxiangqing_pingfen.png"></image>
+            <image wx:for="{{5}}" wx:key="xxKey" src="../../../images/star.png"></image>
           </view>
           <view class="shop_pj_box_li_r_center">{{evItem.content}}</view>
           <view class="shop_pj_box_li_r_imgs clear">
@@ -105,25 +106,22 @@
       <view>
         <contact-button type="default-light" 
   size="20">
-          <image src="../../../images/shangpinxiangqing_kefu.png"></image>
+          <image src="../../../images/xiaoxi.png"></image>
         </contact-button>
       </view>
     </view>
-    <view class="bot_nav_li" bindtap='shoucang' data-status="{{datas.is_collect}}">
-      <view>
-        <image src="../../../images/{{datas.is_collect == 1 ? 'shangpinxiangqing_shoucang02' : 'shangpinxiangqing_shoucang01'}}.png"></image>
-      </view>
-    </view>
+ 
     <view class="bot_nav_li" bindtap='linkCar'>
       <view>
-        <image src="../../../images/shangpinxiangqing_gouwuche.png"></image>
+        <image src="../../../images/gouwuche.png"></image>
       </view>
+    </view>
+    
+    <view class="bot_nav_pay" data-index="2" bindtap='shopPayBox'>
+      立即购买
     </view>
     <view class="bot_nav_addcar" data-index="1" bindtap='shopPayBox'>
       加入购物车
-    </view>
-    <view class="bot_nav_pay" data-index="2" bindtap='shopPayBox'>
-      立即购买
     </view>
   </view>
   <view class="model_msg {{none[0] == 0 ? 'none' : ''}}">

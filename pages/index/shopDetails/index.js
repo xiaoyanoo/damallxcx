@@ -267,7 +267,14 @@ Page({
       },
       success: function (res) {
         if (res.data.code == 0) {
+          
           var datas = res.data.data;
+          if (datas.evaluation){
+            var new_eva=[];
+            new_eva[0] = datas.evaluation[0]
+            new_eva[1] = datas.evaluation[1]
+          }
+          datas.new_eva = new_eva;
           if (datas.sku.sku_num) {
             var sku_num = datas.sku.sku_num.split('_');
             //遍历所有规格

@@ -175,11 +175,13 @@ swiper-item image {
   height: 50rpx;
   margin-left: 25rpx;
   margin-top: 20rpx;
+  
 }
 .shop_pj_box_li_l image {
   float: left;
   height: 100%;
   width: 100%;
+  border-radius: 25rpx;
 }
 .shop_pj_box_li_r {
   float: left;
@@ -357,13 +359,13 @@ swiper-item image {
 }
 .bot_nav_addcar {
   width: 190rpx;
-  float: left;
+  float: right;
   height: 88rpx;
   line-height: 88rpx;
   text-align: center;
   font-size: 30rpx;
   color:#f25c5c;
-  border-top: 1px solid #f0f0f0;
+  border: 1px solid #f25c5c;
 }
 .bot_nav_pay {
   width: 200rpx;
@@ -373,7 +375,7 @@ swiper-item image {
   text-align: center;
   font-size: 30rpx;
   color:#fef9da;
-  background: #546571;
+  background: #ff0000;
 }
 
 .model_msg {
