@@ -1,6 +1,8 @@
 <!--pages/member/index/index.wxml-->
 <view class="container">
   <view class="my_top">
+  <image class='my_top_bg' src="../../../images/wode_bg.png"></image>
+  <image class='touxiang_bg' src="../../../images/touxiang_bg.png"></image>
     <view class="my_top_box clear">
       <view class="my_top_box_pic">
         <block wx:if="{{user_info.head_pic}}">
@@ -28,6 +30,7 @@
       <block wx:if="{{user_id}}">
         <view class="my_top_box_name">
           <view class="my_top_box_name_nickName">{{user_info.nickname}}</view>
+          <image class="my_top_box_name_bianji" src='../../../images/bianji.png'></image>
           <view class="my_top_box_name_msg">
             <text bindtap='linkmember'>
             <block wx:if="{{user_info.level == 1}}">普通会员</block>
@@ -47,95 +50,108 @@
       <view class="my_top_box_setup" bindtap='linkSetup'>
         <image src="../../../images/wode_shezhi.png"></image>
       </view>
-      <view class="my_choujiang" bindtap='myChoujiang'>
-        <text>我的抽奖</text>
-      </view>
+     
 
 
 
     </view>
+    <view class="my_yongjin">
+      <text class="my_yongjin_left">我的佣金</text>
+      <image  class="my_yongjin_you" src="../../../images/you.png"></image>
 
+      <text class="my_yongjin_money">￥8000</text>
+    </view>
     <view class="my_order">
       <view class="my_order_box" data-num="0" bindtap='orderList'>
         <view class="my_order_box_img">
-          <image src="../../../images/wode_daizhifu.png"></image>
+          <image src="../../../images/daifukuan.png"></image>
         </view>
         <view class="my_order_box_text">待支付</view>
       </view>
       <view class="my_order_box" data-num="1" bindtap='orderList'>
         <view class="my_order_box_img">
-          <image src="../../../images/wode_daishouhuo.png"></image>
+          <image src="../../../images/daifahuo.png"></image>
         </view>
-        <view class="my_order_box_text">待收货</view>
+        <view class="my_order_box_text">待发货</view>
       </view>
       <view class="my_order_box" data-num="2" bindtap='orderList'>
         <view class="my_order_box_img">
-          <image src="../../../images/wode_daipingjia.png"></image>
+          <image src="../../../images/daishouhuo.png"></image>
         </view>
-        <view class="my_order_box_text">待评价 </view>
+        <view class="my_order_box_text">待收货</view>
       </view>
       <view class="my_order_box" data-num="3" bindtap='orderList'>
         <view class="my_order_box_img">
-          <image src="../../../images/wode_shouhuo.png"></image>
+          <image src="../../../images/daipinglun.png"></image>
         </view>
-        <view class="my_order_box_text">退款/售后 </view>
+        <view class="my_order_box_text">待评价</view>
       </view>
       <view class="my_order_box" bindtap='linkDioscount'>
         <view class="my_order_box_img">
-          <image src="../../../images/wode_zhekouquan.png"></image>
+          <image src="../../../images/all_order.png"></image>
         </view>
-        <view class="my_order_box_text">折扣券 </view>
+        <view class="my_order_box_text">全部订单</view>
       </view>
     </view>
   </view>
   <view class="my_orderList">
     <view class="my_orderList_box" bindtap='linkZzlist'>
       <view class="my_orderList_box_img">
-        <image src="../../../images/wode_zhengzhuangzizhen.png"></image>
+        <image src="../../../images/youhuiquan.png"></image>
       </view>
-      <view class="my_orderList_box_text">症状自诊</view>
+      <view class="my_orderList_box_text">我的优惠券</view>
     </view>
     <view class="my_orderList_box" bindtap='linkMyReservation'>
       <view class="my_orderList_box_img">
-        <image src="../../../images/wode_wodeyuding.png"></image>
+        <image src="../../../images/guanzhu.png"></image>
       </view>
-      <view class="my_orderList_box_text">我的预订</view>
+      <view class="my_orderList_box_text">我的关注</view>
     </view>
     <view class="my_orderList_box" bindtap='linkCommission'>
       <view class="my_orderList_box_img">
-        <image src="../../../images/wode_yongjintixian.png"></image>
+        <image src="../../../images/fensi.png"></image>
       </view>
-      <view class="my_orderList_box_text">佣金提现</view>
+      <view class="my_orderList_box_text">我的粉丝</view>
     </view>
     <view class="my_orderList_box" bindtap='linkmember'>
       <view class="my_orderList_box_img">
-        <image src="../../../images/wode_wodexiaxian.png"></image>
+        <image src="../../../images/zuoping.png"></image>
       </view>
-      <view class="my_orderList_box_text">我的会员</view>
+      <view class="my_orderList_box_text">我的作品</view>
     </view>
-    <view class="my_orderList_box" bindtap='linkNews'>
-      <view class="my_orderList_box_img">
-        <image src="../../../images/wode_xiaoxi.png"></image>
+    
+   
+  </view>
+  <view class="my_other" >
+    <view class="my_other_box" bindtap='btnMyShoucang'>
+      <view class="my_other_box_img">
+        <image src="../../../images/gerenxinxi.png"></image>
       </view>
-      <view class="my_orderList_box_text">消息推送</view>
+      <view class="my_other_box_text">个人信息<image  class="my_yongjin_you" src="../../../images/you.png"></image></view>
     </view>
-    <view class="my_orderList_box" bindtap='linkComment'>
-      <view class="my_orderList_box_img">
-        <image src="../../../images/wode_pinglun.png"></image>
-      </view>
-      <view class="my_orderList_box_text">我的评论</view>
-    </view>
-    <view class="my_orderList_box" bindtap='btnMyShoucang'>
-      <view class="my_orderList_box_img">
+    <view class="my_other_box" bindtap='btnMyShoucang'>
+      <view class="my_other_box_img">
         <image src="../../../images/wode_shoucang.png"></image>
       </view>
-      <view class="my_orderList_box_text">我的收藏</view>
+      <view class="my_other_box_text">我的收藏<image  class="my_yongjin_you" src="../../../images/you.png"></image></view>
     </view>
-    <view class="my_orderList_box" bindtap='turntable'>
-      <view class="my_orderList_box_img">
-        <image src="../../../images/wode_zhuanpan.png"></image>
+    <view class="my_other_box" bindtap='btnMyShoucang'>
+      <view class="my_other_box_img">
+        <image src="../../../images/shop_ruzhu.png"></image>
       </view>
-      <view class="my_orderList_box_text">转盘礼品</view>
+      <view class="my_other_box_text">商户申请入驻<image  class="my_yongjin_you" src="../../../images/you.png"></image></view>
+    </view>
+    <view class="my_other_box" bindtap='btnMyShoucang'>
+      <view class="my_other_box_img">
+        <image src="../../../images/address.png"></image>
+      </view>
+      <view class="my_other_box_text">收货地址<image  class="my_yongjin_you" src="../../../images/you.png"></image></view>
+    </view>
+    <view class="my_other_box" bindtap='btnMyShoucang'>
+      <view class="my_other_box_img">
+        <image src="../../../images/kefuzhongxin.png"></image>
+      </view>
+      <view class="my_other_box_text">客服中心<image  class="my_yongjin_you" src="../../../images/you.png"></image></view>
     </view>
   </view>
 </view>

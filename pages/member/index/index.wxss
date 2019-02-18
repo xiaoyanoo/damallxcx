@@ -9,8 +9,23 @@
   width: 100%;
   height: 300rpx;
   position: relative;
-  background: #546571;
-  border-top: 1px solid #546571;
+  /* background: #546571; */
+  /* border-top: 1px solid #546571; */
+}
+.my_top_bg{
+  width:100%;
+  height:325rpx;
+  position:absolute;
+  margin-top:-25rpx;
+
+}
+.touxiang_bg{
+  width:250rpx;
+  height:250rpx;
+  position:absolute;
+  margin-top:12rpx;
+  margin-left:33%;
+
 }
 .my_top_box {
   width: 700rpx;
@@ -21,6 +36,8 @@
   width: 140rpx;
   height: 140rpx;
   position: relative;
+  margin-left:40%;
+  margin-top: 70rpx;
 }
 .my_top_box_pic_top {
   width: 140rpx;
@@ -56,14 +73,24 @@
   float: left;
   width: 430rpx;
   padding-left: 10rpx;
-  height: 140rpx;
+  height: 92rpx;
   margin-left: 20rpx;
 }
 .my_top_box_name_nickName {
   line-height: 60rpx;
-  margin-top: 40rpx;
+  margin-top: 20rpx;
   font-size: 36rpx;
-  color: #fef9da;
+  color: #fff;
+  position: absolute;
+  margin-left:268rpx;
+
+}
+.my_top_box_name_bianji{
+  width: 50rpx;
+  height: 50rpx;
+  margin-top: 20rpx;
+  position: absolute;
+  margin-left:404rpx;
 }
 .my_top_box_name_msg {
   line-height: 60rpx;
@@ -72,16 +99,13 @@
 }
 
 .my_order {
-  width: 703rpx;
+  width: 100%;
   height: 160rpx;
   position: absolute;
-  left: 25rpx;
-  bottom: -100rpx;
   background: #ffffff;
   border-radius: 6rpx;
-  border-bottom: 8rpx solid #546571;
-  box-shadow: 0 2rpx 5rpx 2rpx #ccc;
-  padding: 0 25rpx;
+  border-bottom: 1px solid #f0f0f0;
+
 }
 .my_order_box {
   width: 20%;
@@ -116,18 +140,17 @@ top:133rpx;
   width: 100%;
   text-align: center;
   line-height: 48rpx;
-  color: #1f1f1f;
+  color: #999;
 }
 .my_orderList {
-  width: 700rpx;
-  height: 400rpx;
-  margin: 200rpx auto 0;
+  width: 100%;
+  height: 236rpx;
   background: #ffffff;
   border-radius: 6rpx;
-  border-bottom: 8rpx solid #546571;
-  box-shadow: 0 2rpx 5rpx 2rpx #ccc;
-  padding: 0 25rpx;
   box-sizing: border-box;
+  border-bottom: 1px solid #f0f0f0;
+  margin-top:280rpx;
+
 }
 .my_orderList_box {
   width: 25%;
@@ -136,8 +159,8 @@ top:133rpx;
   height: 50%;
 }
 .my_orderList_box_img {
-  width: 54rpx;
-  height: 54rpx;
+  width:148rpx;
+  height:67rpx;
   margin: 50rpx auto 10rpx;
 }
 .my_orderList_box_img image {
@@ -162,4 +185,56 @@ top:133rpx;
   font-size: 28rpx;
   color:#546571;
   padding: 0;
+}
+.my_yongjin{
+  width: 100%;
+  height: 100rpx;
+  padding: 0 25rpx;
+  line-height: 100rpx;
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+
+}
+.my_yongjin_left{
+  float: left;
+  font-size: 35rpx;
+  color: #999;
+}
+.my_yongjin_money{
+  color:#ff3b30;
+  float: right;
+  font-size: 35rpx;
+  margin-right: 20rpx;
+}
+.my_yongjin_you{
+  width:20rpx;
+  height:33rpx;
+  float: right;
+  display: inline-block;
+  margin-top: 34rpx;
+}
+.my_other{
+  height: 492rpx;
+  padding:0 25rpx;
+  background: #fff;
+  margin-top: 25rpx;
+  margin-bottom: 50rpx;
+}
+.my_other_box{
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 1px solid #f0f0f0
+}
+.my_other_box_img{
+  height: 50rpx;
+  width: 50rpx;
+  float: left;
+  margin-right: 20rpx;
+  margin-top:25rpx;
+
+}
+.my_other_box_img image{
+  height: 100%;
+  width: 100%;
+  float: left;
 }

@@ -106,7 +106,7 @@
       <view>
         <contact-button type="default-light" 
   size="20">
-          <image src="../../../images/xiaoxi.png"></image>
+          <image src="../../../images/kefu.png"></image>
         </contact-button>
       </view>
     </view>
